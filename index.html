@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rutas con Leaflet y grafo JSON</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+        }
+
+        #controls {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Calcula rutas en el mapa</h2>
+
+    <div id="controls">
+        <label for="startSelect">Punto de inicio:</label>
+        <select id="startSelect"></select>
+
+        <label for="endSelect">Punto de destino:</label>
+        <select id="endSelect"></select>
+
+        <button id="routeBtn">Calcular ruta</button>
+        <button id="useLocationBtn">Usar mi ubicación como inicio</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        const coordenadas_edificios = {
+            "Edificio A": { lat: 20.740475484548387, lng: -103.37718367128555 },
+            "Edificio B": { lat: 20.740711386029997, lng: -103.37715332555685 },
+            "Edificio C": { lat: 20.740946568688557, lng: -103.37713646203734 },
+            "Edificio D": { lat: 20.74126051171166, lng: -103.37717060097611 },
+            "Edificio F4": { lat: 20.741444975105047, lng: -103.37713266880324 },
+            "Edificio G": { lat: 20.74193273779499, lng: -103.37581831942917 },
+            "Edificio H": { lat: 20.741629438270856, lng: -103.37594349556005 },
+            "Edificio I": { lat: 20.7413296855122, lng: -103.3760686716909 }
+        };
+
+        // Variables globales
+        var map = L.map('map').setView([20.74154552781633, -103.3764680590389], 16);
+        let markers = {};
+        let nodes = [];
+        let edges = [];
+        let routeLayer = null;
+        let userLocationMarker = null;
+
+        // Función para distancia entre dos puntos (haversine)
+        function distancia([lat1, lng1], [lat2, lng2]) {
+            const R = 6371e3; // metros
+            const φ1 = lat1 * Math.PI / 180;
+            const φ2 = lat2 * Math.PI / 180;
+            const Δφ = (lat2 - lat1) * Math.PI / 180;
+            const Δλ = (lng2 - lng1) * Math.PI / 180;
+            const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+                Math.cos(φ1) * Math.cos(φ2) *
+                Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            const d = R * c;
+            return d;
+        }
+
+        // Pequeño desplazamiento de nodos dentro de un mismo edificio
+        function offsetCoordinates(baseLat, baseLng, index, total) {
+            const offset = 0.00002; // ≈ 2m
+            const angle = (2 * Math.PI / total) * index;
+            return {
+                lat: baseLat + Math.cos(angle) * offset,
+                lng: baseLng + Math.sin(angle) * offset
+            };
+        }
+
+        // Algoritmo Dijkstra para encontrar ruta más corta
+        function dijkstra(startId, endId, nodes, edges) {
+            let dist = {};
+            let prev = {};
+            let Q = new Set();
+
+            nodes.forEach(node => {
+                dist[node.id] = Infinity;
+                prev[node.id] = null;
+                Q.add(node.id);
+            });
+            dist[startId] = 0;
+
+            while (Q.size > 0) {
+                // Nodo con distancia mínima
+                let u = null;
+                let minDist = Infinity;
+                Q.forEach(id => {
+                    if (dist[id] < minDist) {
+                        minDist = dist[id];
+                        u = id;
+                    }
+                });
+                if (u === endId || minDist === Infinity) break;
+
+                Q.delete(u);
+
+                // Vecinos de u
+                edges.forEach(edge => {
+                    if (edge.source === u && Q.has(edge.target)) {
+                        const alt = dist[u] + edge.weight;
+                        if (alt < dist[edge.target]) {
+                            dist[edge.target] = alt;
+                            prev[edge.target] = u;
+                        }
+                    }
+                    else if (edge.target === u && Q.has(edge.source)) {
+                        const alt = dist[u] + edge.weight;
+                        if (alt < dist[edge.source]) {
+                            dist[edge.source] = alt;
+                            prev[edge.source] = u;
+                        }
+                    }
+                });
+            }
+
+            // Reconstruir camino
+            let path = [];
+            let current = endId;
+            while (current) {
+                path.unshift(current);
+                current = prev[current];
+            }
+            if (path[0] !== startId) return null; // No hay ruta
+            return path;
+        }
+
+        // Inicializar mapa y capa base
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // Elementos del DOM
+        const startSelect = document.getElementById('startSelect');
+        const endSelect = document.getElementById('endSelect');
+        const routeBtn = document.getElementById('routeBtn');
+        const useLocationBtn = document.getElementById('useLocationBtn');
+
+        // Íconos personalizados
+        const startIcon = L.icon({
+            iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/green-dot.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        const endIcon = L.icon({
+            iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        fetch('./grafo_leaflet.json')
+            .then(res => res.json())
+            .then(data => {
+                nodes = data.nodes;
+
+                // 1️⃣ Asignar coordenadas primero
+                let edificioCounts = {};
+                nodes.forEach(node => {
+                    if (node.lat == null || node.lng == null) {
+                        if (coordenadas_edificios[node.edificio]) {
+                            edificioCounts[node.edificio] = (edificioCounts[node.edificio] || 0) + 1;
+                            const idx = edificioCounts[node.edificio];
+                            const coords = offsetCoordinates(
+                                coordenadas_edificios[node.edificio].lat,
+                                coordenadas_edificios[node.edificio].lng,
+                                idx,
+                                10
+                            );
+                            node.lat = coords.lat;
+                            node.lng = coords.lng;
+                        } else {
+                            console.warn(`No se encontró coordenadas para ${node.edificio} (nodo ${node.id}).`);
+                            return;
+                        }
+                    }
+
+                    // Añadir al selector
+                    let optionStart = document.createElement('option');
+                    optionStart.value = node.id;
+                    optionStart.textContent = `${node.edificio} - ${node.piso} (${node.id})`;
+                    startSelect.appendChild(optionStart);
+
+                    let optionEnd = document.createElement('option');
+                    optionEnd.value = node.id;
+                    optionEnd.textContent = `${node.edificio} - ${node.piso} (${node.id})`;
+                    endSelect.appendChild(optionEnd);
+
+                    // Crear marcador
+                    let marker = L.marker([node.lat, node.lng]).addTo(map)
+                        .bindPopup(`<b>${node.id}</b><br>${node.edificio}<br>${node.piso}`);
+                    markers[node.id] = marker;
+                });
+
+                // 2️⃣ Una vez que todos los nodos tienen coordenadas, construimos edges
+                edges = data.edges.map(edge => {
+                    const fromNode = nodes.find(n => n.id === edge.from);
+                    const toNode = nodes.find(n => n.id === edge.to);
+                    if (!fromNode || !toNode) {
+                        console.warn("Edge con nodo inexistente:", edge);
+                        return null;
+                    }
+                    return {
+                        source: edge.from,
+                        target: edge.to,
+                        weight: distancia([fromNode.lat, fromNode.lng], [toNode.lat, toNode.lng])
+                    };
+                }).filter(e => e !== null);
+
+                console.log("Aristas cargadas:", edges);
+            })
+            .catch(err => console.error("Error cargando el JSON:", err));
+
+        // Al hacer clic en calcular ruta
+        routeBtn.addEventListener('click', () => {
+            const startId = startSelect.value;
+            const endId = endSelect.value;
+
+            if (!startId || !endId) {
+                alert('Selecciona ambos puntos.');
+                return;
+            }
+            if (startId === endId) {
+                alert('El punto de inicio y destino no pueden ser iguales.');
+                return;
+            }
+
+            const path = dijkstra(startId, endId, nodes, edges);
+            if (!path) {
+                alert('No hay ruta disponible entre estos puntos.');
+                return;
+            }
+
+            // Dibujar ruta
+            const latlngs = path.map(id => markers[id].getLatLng());
+            if (routeLayer) {
+                map.removeLayer(routeLayer);
+            }
+            routeLayer = L.polyline(latlngs, { color: 'blue', weight: 4 }).addTo(map);
+            map.fitBounds(routeLayer.getBounds());
+
+            // Resetear íconos
+            Object.values(markers).forEach(marker => {
+                marker.setIcon(new L.Icon.Default());
+            });
+
+            // Colorear inicio y fin
+            markers[startId].setIcon(startIcon);
+            markers[endId].setIcon(endIcon);
+
+            // Mostrar popup en inicio y fin
+            markers[startId].openPopup();
+            markers[endId].openPopup();
+        });
+
+        // Botón para usar ubicación actual
+        useLocationBtn.addEventListener('click', () => {
+            if (!navigator.geolocation) {
+                alert('Tu navegador no soporta geolocalización.');
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(position => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+
+                if (userLocationMarker) {
+                    map.removeLayer(userLocationMarker);
+                }
+                userLocationMarker = L.marker([lat, lng], {
+                    title: 'Tu ubicación', icon: L.icon({
+                        iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png',
+                        iconSize: [32, 32],
+                        iconAnchor: [16, 32],
+                        popupAnchor: [0, -32]
+                    })
+                }).addTo(map).bindPopup('Tu ubicación').openPopup();
+
+                map.setView([lat, lng], 17);
+
+                // Buscar nodo más cercano
+                let minDist = Infinity;
+                let closestNodeId = null;
+                nodes.forEach(node => {
+                    const d = distancia([lat, lng], [node.lat, node.lng]);
+                    if (d < minDist) {
+                        minDist = d;
+                        closestNodeId = node.id;
+                    }
+                });
+
+                if (closestNodeId) {
+                    startSelect.value = closestNodeId;
+                    alert(`Nodo más cercano seleccionado como inicio: ${closestNodeId}`);
+                }
+
+            }, err => {
+                alert('Error al obtener ubicación: ' + err.message);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,841 @@
+[
+  {
+    "name": "Belenes",
+    "children": [
+      {
+        "name": "Edificio D",
+        "children": [
+          {
+            "name": "Piso 2",
+            "children": [
+              {
+                "name": "FBD 10"
+              },
+              {
+                "name": "FBD 11"
+              },
+              {
+                "name": "FBD 13"
+              },
+              {
+                "name": "FBD 14"
+              },
+              {
+                "name": "FBD 15"
+              },
+              {
+                "name": "FBD 16"
+              }
+            ]
+          },
+          {
+            "name": "Piso 3",
+            "children": [
+              {
+                "name": "FBD 17"
+              },
+              {
+                "name": "FBD 18"
+              },
+              {
+                "name": "FBD 20"
+              },
+              {
+                "name": "FBD 21"
+              },
+              {
+                "name": "FBD 22"
+              },
+              {
+                "name": "FBD 23"
+              }
+            ]
+          },
+          {
+            "name": "Piso 1",
+            "children": [
+              {
+                "name": "FBD 3"
+              },
+              {
+                "name": "FBD 4"
+              },
+              {
+                "name": "FBD 6"
+              },
+              {
+                "name": "FBD 7"
+              },
+              {
+                "name": "FBD 8"
+              },
+              {
+                "name": "FBD 9"
+              }
+            ]
+          },
+          {
+            "name": "Piso 4",
+            "children": [
+              {
+                "name": "CAG"
+              },
+              {
+                "name": "FBD 24"
+              },
+              {
+                "name": "FBD 25"
+              }
+            ]
+          },
+          {
+            "name": "Planta Baja",
+            "children": [
+              {
+                "name": "FBD 1"
+              },
+              {
+                "name": "FBD 2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Edificio F4",
+        "children": [
+          {
+            "name": "Piso 2",
+            "children": [
+              {
+                "name": "FBF4 1"
+              },
+              {
+                "name": "FBF4 10"
+              },
+              {
+                "name": "FBF4 3"
+              },
+              {
+                "name": "FBF4 4"
+              },
+              {
+                "name": "FBF4 5"
+              },
+              {
+                "name": "FBF4 6"
+              },
+              {
+                "name": "FBF4 7"
+              },
+              {
+                "name": "FBF4 8"
+              },
+              {
+                "name": "FBF4 9"
+              },
+              {
+                "name": "FBF4 2"
+              }
+            ]
+          },
+          {
+            "name": "Piso 3",
+            "children": [
+              {
+                "name": "FBF4 11"
+              },
+              {
+                "name": "FBF4 12"
+              },
+              {
+                "name": "FBF4 13"
+              },
+              {
+                "name": "FBF4 14"
+              },
+              {
+                "name": "FBF4 15"
+              },
+              {
+                "name": "FBF4 16"
+              },
+              {
+                "name": "FBF4 17"
+              },
+              {
+                "name": "FBF4 18"
+              },
+              {
+                "name": "FBF4 19"
+              },
+              {
+                "name": "FBF4 20"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Edificio A",
+        "children": [
+          {
+            "name": "Planta Baja",
+            "children": [
+              {
+                "name": "FBA 1"
+              },
+              {
+                "name": "FBA 2"
+              },
+              {
+                "name": "FBA 3"
+              },
+              {
+                "name": "FBA 4"
+              }
+            ]
+          },
+          {
+            "name": "Piso 2",
+            "children": [
+              {
+                "name": "FBA 10"
+              },
+              {
+                "name": "FBA 11"
+              },
+              {
+                "name": "FBA 12"
+              },
+              {
+                "name": "FBA 13"
+              },
+              {
+                "name": "FBA 14"
+              },
+              {
+                "name": "FBA 15"
+              },
+              {
+                "name": "FBA 16"
+              },
+              {
+                "name": "FBA 9"
+              }
+            ]
+          },
+          {
+            "name": "Piso 1",
+            "children": [
+              {
+                "name": "FBA 7"
+              },
+              {
+                "name": "FBA 8"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Edificio C",
+        "children": [
+          {
+            "name": "Piso 1",
+            "children": [
+              {
+                "name": "FBC 10"
+              },
+              {
+                "name": "FBC 2"
+              },
+              {
+                "name": "FBC 3"
+              },
+              {
+                "name": "FBC 4"
+              },
+              {
+                "name": "FBC 5"
+              },
+              {
+                "name": "FBC 6"
+              },
+              {
+                "name": "FBC 7"
+              },
+              {
+                "name": "FBC 8"
+              },
+              {
+                "name": "FBC 9"
+              },
+              {
+                "name": "FBC 1"
+              }
+            ]
+          },
+          {
+            "name": "Piso 2",
+            "children": [
+              {
+                "name": "FBC 12"
+              },
+              {
+                "name": "FBC 13"
+              },
+              {
+                "name": "FBC 14"
+              },
+              {
+                "name": "FBC 15"
+              },
+              {
+                "name": "FBC 17"
+              },
+              {
+                "name": "FBC 18"
+              },
+              {
+                "name": "FBC 19"
+              },
+              {
+                "name": "FBC 20"
+              },
+              {
+                "name": "FBC 16"
+              },
+              {
+                "name": "FBC 11"
+              }
+            ]
+          },
+          {
+            "name": "Piso 3",
+            "children": [
+              {
+                "name": "FBC 21"
+              },
+              {
+                "name": "FBC 22"
+              },
+              {
+                "name": "FBC 23"
+              },
+              {
+                "name": "FBC 24"
+              },
+              {
+                "name": "FBC 25"
+              },
+              {
+                "name": "FBC 26"
+              }
+            ]
+          },
+          {
+            "name": "Planta Baja",
+            "children": [
+              {
+                "name": "Sala de Juntas Fernando Carlos Vevia Romero"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Edificio E",
+        "children": [
+          {
+            "name": "Piso 2",
+            "children": [
+              {
+                "name": "E 2"
+              },
+              {
+                "name": "E 3"
+              },
+              {
+                "name": "E 4"
+              },
+              {
+                "name": "E 6"
+              },
+              {
+                "name": "E 5"
+              }
+            ]
+          },
+          {
+            "name": "Piso 3",
+            "children": [
+              {
+                "name": "E 7"
+              },
+              {
+                "name": "E 8"
+              },
+              {
+                "name": "E 9"
+              },
+              {
+                "name": "E 10"
+              },
+              {
+                "name": "E 11"
+              },
+              {
+                "name": "E 12"
+              }
+            ]
+          },
+          {
+            "name": "Piso 4",
+            "children": [
+              {
+                "name": "Administración de espacios (Aulas y Laboratorios)"
+              },
+              {
+                "name": "Aula Virtual"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Edificio B",
+        "children": [
+          {
+            "name": "Piso 1",
+            "children": [
+              {
+                "name": "FB1 1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Edificio G",
+        "children": [
+          {
+            "name": "Piso 2",
+            "children": [
+              {
+                "name": "FBG 23"
+              },
+              {
+                "name": "FBG 17"
+              },
+              {
+                "name": "FBG 19"
+              },
+              {
+                "name": "FBG 21"
+              },
+              {
+                "name": "FBG 25"
+              },
+              {
+                "name": "FBG 18"
+              },
+              {
+                "name": "FBG 20"
+              },
+              {
+                "name": "FBG 22"
+              },
+              {
+                "name": "FBG 24"
+              },
+              {
+                "name": "FBG 26"
+              }
+            ]
+          },
+          {
+            "name": "Piso 1",
+            "children": [
+              {
+                "name": "FBG 7"
+              },
+              {
+                "name": "FBG 9"
+              },
+              {
+                "name": "FBG 11"
+              },
+              {
+                "name": "FBG 13"
+              },
+              {
+                "name": "FBG 15"
+              },
+              {
+                "name": "FBG 8"
+              },
+              {
+                "name": "FBG 10"
+              },
+              {
+                "name": "FBG 12"
+              },
+              {
+                "name": "FBG 14"
+              },
+              {
+                "name": "FBG 16"
+              }
+            ]
+          },
+          {
+            "name": "Planta Baja",
+            "children": [
+              {
+                "name": "FBG 3"
+              },
+              {
+                "name": "FBG 2"
+              },
+              {
+                "name": "FBG 1"
+              },
+              {
+                "name": "FBG 5"
+              },
+              {
+                "name": "FBG 4"
+              },
+              {
+                "name": "FBG 6"
+              },
+              {
+                "name": "Sala de Juicios Orales 1"
+              }
+            ]
+          },
+          {
+            "name": "Piso 3",
+            "children": [
+              {
+                "name": "FBG 27"
+              },
+              {
+                "name": "FBG 37"
+              },
+              {
+                "name": "FBG 29"
+              },
+              {
+                "name": "FBG 28"
+              },
+              {
+                "name": "FBG 33"
+              },
+              {
+                "name": "FBG 30"
+              },
+              {
+                "name": "FBG 35"
+              },
+              {
+                "name": "FBG 32"
+              },
+              {
+                "name": "FBG 34"
+              },
+              {
+                "name": "FBG 31"
+              },
+              {
+                "name": "FBG 36"
+              },
+              {
+                "name": "FBG 38"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Edificio I",
+        "children": [
+          {
+            "name": "Planta Baja",
+            "children": [
+              {
+                "name": "FBI 1"
+              },
+              {
+                "name": "FBI 2"
+              },
+              {
+                "name": "FBI 3"
+              },
+              {
+                "name": "FBI 4"
+              },
+              {
+                "name": "FBI 5"
+              },
+              {
+                "name": "FBI 6"
+              }
+            ]
+          },
+          {
+            "name": "Piso 1",
+            "children": [
+              {
+                "name": "FBI 7"
+              },
+              {
+                "name": "FBI 8"
+              },
+              {
+                "name": "FBI 9"
+              },
+              {
+                "name": "FBI 10"
+              },
+              {
+                "name": "FBI 11"
+              },
+              {
+                "name": "FBI 12"
+              },
+              {
+                "name": "FBI 13"
+              },
+              {
+                "name": "FBI 14"
+              },
+              {
+                "name": "FBI 15"
+              },
+              {
+                "name": "FBI 16"
+              }
+            ]
+          },
+          {
+            "name": "Piso 2",
+            "children": [
+              {
+                "name": "FBI 17"
+              },
+              {
+                "name": "FBI 18"
+              },
+              {
+                "name": "FBI 19"
+              },
+              {
+                "name": "FBI 20"
+              },
+              {
+                "name": "FBI 21"
+              },
+              {
+                "name": "FBI 22"
+              },
+              {
+                "name": "FBI 23"
+              },
+              {
+                "name": "FBI 24"
+              },
+              {
+                "name": "FBI 25"
+              },
+              {
+                "name": "FBI 26"
+              }
+            ]
+          },
+          {
+            "name": "Piso 3",
+            "children": [
+              {
+                "name": "FBI 27"
+              },
+              {
+                "name": "FBI 28"
+              },
+              {
+                "name": "FBI 29"
+              },
+              {
+                "name": "FBI 30"
+              },
+              {
+                "name": "FBI 31"
+              },
+              {
+                "name": "FBI 32"
+              },
+              {
+                "name": "FBI 33"
+              },
+              {
+                "name": "FBI 34"
+              },
+              {
+                "name": "FBI 36"
+              },
+              {
+                "name": "FBI 35"
+              },
+              {
+                "name": "FBI 37"
+              },
+              {
+                "name": "FBI 38"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Edificio H",
+        "children": [
+          {
+            "name": "Planta Baja",
+            "children": [
+              {
+                "name": "FBH 1"
+              },
+              {
+                "name": "FBH 2"
+              },
+              {
+                "name": "FBH 5"
+              },
+              {
+                "name": "FBH 6"
+              },
+              {
+                "name": "FBH 4"
+              },
+              {
+                "name": "FBH 3"
+              }
+            ]
+          },
+          {
+            "name": "Piso 1",
+            "children": [
+              {
+                "name": "FBH 8"
+              },
+              {
+                "name": "FBH 9"
+              },
+              {
+                "name": "FBH 12"
+              },
+              {
+                "name": "FBH 13"
+              },
+              {
+                "name": "FBH 16"
+              },
+              {
+                "name": "FBH 7"
+              },
+              {
+                "name": "FBH 10"
+              },
+              {
+                "name": "FBH 11"
+              },
+              {
+                "name": "FBH 14"
+              },
+              {
+                "name": "FBH 15"
+              }
+            ]
+          },
+          {
+            "name": "Piso 2",
+            "children": [
+              {
+                "name": "FBH 17"
+              },
+              {
+                "name": "FBH 20"
+              },
+              {
+                "name": "FBH 21"
+              },
+              {
+                "name": "FBH 24"
+              },
+              {
+                "name": "FBH 25"
+              },
+              {
+                "name": "FBH 23"
+              },
+              {
+                "name": "FBH 22"
+              },
+              {
+                "name": "FBH 19"
+              },
+              {
+                "name": "FBH 18"
+              },
+              {
+                "name": "FBH 26"
+              }
+            ]
+          },
+          {
+            "name": "Piso 3",
+            "children": [
+              {
+                "name": "FBH 28"
+              },
+              {
+                "name": "FBH 29"
+              },
+              {
+                "name": "FBH 32"
+              },
+              {
+                "name": "FBH 33"
+              },
+              {
+                "name": "FBH 35"
+              },
+              {
+                "name": "FBH 38"
+              },
+              {
+                "name": "FBH 27"
+              },
+              {
+                "name": "FBH 30"
+              },
+              {
+                "name": "FBH 31"
+              },
+              {
+                "name": "FBH 34"
+              },
+              {
+                "name": "FBH 36"
+              },
+              {
+                "name": "FBH 37"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

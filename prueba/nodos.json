@@ -1,0 +1,282 @@
+{
+    "nodes": [
+        {
+            "id": "Entrada A",
+            "edificio": "Edificio A",
+            "piso": "PB"
+        },
+        {
+            "id": "FBA 1",
+            "edificio": "Edificio A",
+            "piso": "1"
+        },
+        {
+            "id": "FBA 2",
+            "edificio": "Edificio A",
+            "piso": "1"
+        },
+        {
+            "id": "FBA 3",
+            "edificio": "Edificio A",
+            "piso": "1"
+        },
+        {
+            "id": "Entrada C",
+            "edificio": "Edificio C",
+            "piso": "PB"
+        },
+        {
+            "id": "FBC 1",
+            "edificio": "Edificio C",
+            "piso": "1"
+        },
+        {
+            "id": "FBC 2",
+            "edificio": "Edificio C",
+            "piso": "1"
+        },
+        {
+            "id": "FBC 3",
+            "edificio": "Edificio C",
+            "piso": "1"
+        },
+        {
+            "id": "Entrada D",
+            "edificio": "Edificio D",
+            "piso": "PB"
+        },
+        {
+            "id": "FBD 1",
+            "edificio": "Edificio D",
+            "piso": "1"
+        },
+        {
+            "id": "FBD 2",
+            "edificio": "Edificio D",
+            "piso": "1"
+        },
+        {
+            "id": "FBD 3",
+            "edificio": "Edificio D",
+            "piso": "1"
+        },
+        {
+            "id": "Entrada F4",
+            "edificio": "Edificio F4",
+            "piso": "PB"
+        },
+        {
+            "id": "FBF4 1",
+            "edificio": "Edificio F4",
+            "piso": "1"
+        },
+        {
+            "id": "FBF4 2",
+            "edificio": "Edificio F4",
+            "piso": "1"
+        },
+        {
+            "id": "FBF4 3",
+            "edificio": "Edificio F4",
+            "piso": "1"
+        },
+        {
+            "id": "Entrada G",
+            "edificio": "Edificio G",
+            "piso": "PB"
+        },
+        {
+            "id": "FBG 1",
+            "edificio": "Edificio G",
+            "piso": "1"
+        },
+        {
+            "id": "FBG 2",
+            "edificio": "Edificio G",
+            "piso": "1"
+        },
+        {
+            "id": "FBG 3",
+            "edificio": "Edificio G",
+            "piso": "1"
+        },
+        {
+            "id": "Entrada H",
+            "edificio": "Edificio H",
+            "piso": "PB"
+        },
+        {
+            "id": "FBH 1",
+            "edificio": "Edificio H",
+            "piso": "1"
+        },
+        {
+            "id": "FBH 2",
+            "edificio": "Edificio H",
+            "piso": "1"
+        },
+        {
+            "id": "FBH 3",
+            "edificio": "Edificio H",
+            "piso": "1"
+        },
+        {
+            "id": "Entrada I",
+            "edificio": "Edificio I",
+            "piso": "PB"
+        },
+        {
+            "id": "FBI 1",
+            "edificio": "Edificio I",
+            "piso": "1"
+        },
+        {
+            "id": "FBI 2",
+            "edificio": "Edificio I",
+            "piso": "1"
+        },
+        {
+            "id": "FBI 3",
+            "edificio": "Edificio I",
+            "piso": "1"
+        },
+        {
+            "id": "Cruce 1",
+            "edificio": "Cruce",
+            "piso": "PB"
+        },
+        {
+            "id": "Cruce 2",
+            "edificio": "Cruce",
+            "piso": "PB"
+        },
+        {
+            "id": "Cruce 3",
+            "edificio": "Cruce",
+            "piso": "PB"
+        },
+        {
+            "id": "Cruce 4",
+            "edificio": "Cruce",
+            "piso": "PB"
+        }
+    ],
+    "edges": [
+        {
+            "from": "FBA 1",
+            "to": "Entrada A"
+        },
+        {
+            "from": "FBA 2",
+            "to": "Entrada A"
+        },
+        {
+            "from": "FBA 3",
+            "to": "Entrada A"
+        },
+        {
+            "from": "FBC 1",
+            "to": "Entrada C"
+        },
+        {
+            "from": "FBC 2",
+            "to": "Entrada C"
+        },
+        {
+            "from": "FBC 3",
+            "to": "Entrada C"
+        },
+        {
+            "from": "FBD 1",
+            "to": "Entrada D"
+        },
+        {
+            "from": "FBD 2",
+            "to": "Entrada D"
+        },
+        {
+            "from": "FBD 3",
+            "to": "Entrada D"
+        },
+        {
+            "from": "FBF4 1",
+            "to": "Entrada F4"
+        },
+        {
+            "from": "FBF4 2",
+            "to": "Entrada F4"
+        },
+        {
+            "from": "FBF4 3",
+            "to": "Entrada F4"
+        },
+        {
+            "from": "FBG 1",
+            "to": "Entrada G"
+        },
+        {
+            "from": "FBG 2",
+            "to": "Entrada G"
+        },
+        {
+            "from": "FBG 3",
+            "to": "Entrada G"
+        },
+        {
+            "from": "FBH 1",
+            "to": "Entrada H"
+        },
+        {
+            "from": "FBH 2",
+            "to": "Entrada H"
+        },
+        {
+            "from": "FBH 3",
+            "to": "Entrada H"
+        },
+        {
+            "from": "FBI 1",
+            "to": "Entrada I"
+        },
+        {
+            "from": "FBI 2",
+            "to": "Entrada I"
+        },
+        {
+            "from": "FBI 3",
+            "to": "Entrada I"
+        },
+        {
+            "from": "Entrada A",
+            "to": "Cruce 1"
+        },
+        {
+            "from": "Cruce 1",
+            "to": "Entrada G"
+        },
+        {
+            "from": "Entrada C",
+            "to": "Cruce 2"
+        },
+        {
+            "from": "Cruce 2",
+            "to": "Entrada H"
+        },
+        {
+            "from": "Entrada D",
+            "to": "Cruce 3"
+        },
+        {
+            "from": "Cruce 3",
+            "to": "Entrada I"
+        },
+        {
+            "from": "Cruce 1",
+            "to": "Cruce 2"
+        },
+        {
+            "from": "Cruce 2",
+            "to": "Cruce 3"
+        }
+    ]
+}

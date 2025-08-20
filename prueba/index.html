@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rutas entre edificios</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+        }
+
+        #controls {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Calcula rutas en el mapa</h2>
+    <div id="controls">
+        <label for="startSelect">Inicio:</label>
+        <select id="startSelect"></select>
+        <label for="endSelect">Destino:</label>
+        <select id="endSelect"></select>
+        <button id="routeBtn">Calcular ruta</button>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const coordenadas_edificios = {
+            "Edificio A": { lat: 20.740475484548387, lng: -103.37718367128555 },
+            "Edificio C": { lat: 20.740946568688557, lng: -103.37713646203734 },
+            "Edificio D": { lat: 20.74126051171166, lng: -103.37717060097611 },
+            "Edificio F4": { lat: 20.741444975105047, lng: -103.37713266880324 },
+            "Edificio G": { lat: 20.74193273779499, lng: -103.37581831942917 },
+            "Edificio H": { lat: 20.741629438270856, lng: -103.37594349556005 },
+            "Edificio I": { lat: 20.7413296855122, lng: -103.3760686716909 },
+            "Cruce 1": { lat: 20.741880377502067, lng: -103.37644954708321 },
+            "Cruce 2": { lat: 20.741554290001737, lng: -103.37660243298579 },
+            "Cruce 3": { lat: 20.74097485586331, lng: -103.37668021704151 },
+            "Cruce 4": { lat: 20.740563481361807, lng: -103.37670167471205 },
+        };
+
+        let map = L.map('map').setView([20.7406, -103.3771], 17);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19, attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        let nodes = [];
+        let edges = [];
+        let markers = {};
+        let routeLayer = null;
+
+        function distancia([lat1, lng1], [lat2, lng2]) {
+            const R = 6371e3;
+            const φ1 = lat1 * Math.PI / 180;
+            const φ2 = lat2 * Math.PI / 180;
+            const Δφ = (lat2 - lat1) * Math.PI / 180;
+            const Δλ = (lng2 - lng1) * Math.PI / 180;
+            const a = Math.sin(Δφ / 2) ** 2 + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) ** 2;
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
+        function dijkstra(startId, endId) {
+            let dist = {}, prev = {}, Q = new Set(nodes.map(n => n.id));
+            nodes.forEach(n => dist[n.id] = Infinity);
+            dist[startId] = 0;
+
+            while (Q.size) {
+                let u = [...Q].reduce((a, b) => dist[a] < dist[b] ? a : b);
+                Q.delete(u);
+                if (u === endId) break;
+                edges.filter(e => e.source === u && Q.has(e.target)).forEach(e => {
+                    let alt = dist[u] + e.weight;
+                    if (alt < dist[e.target]) { dist[e.target] = alt; prev[e.target] = u; }
+                });
+                edges.filter(e => e.target === u && Q.has(e.source)).forEach(e => {
+                    let alt = dist[u] + e.weight;
+                    if (alt < dist[e.source]) { dist[e.source] = alt; prev[e.source] = u; }
+                });
+            }
+            let path = [], u = endId;
+            while (u) { path.unshift(u); u = prev[u]; }
+            return path[0] === startId ? path : null;
+        }
+
+        fetch("./nodos.json")
+            .then(r => r.json())
+            .then(data => {
+                nodes = data.nodes;
+                // asignar coordenadas
+                nodes.forEach(n => {
+                    // primero buscar coordenadas específicas por nodo, luego por edificio
+                    const base = coordenadas_edificios[n.id] || coordenadas_edificios[n.edificio];
+                    if (!base) {
+                        console.error("No hay coordenadas para", n.id, n.edificio);
+                        return;
+                    }
+
+                    // entradas y cruces usan coordenadas exactas, salones se dispersan un poco
+                    if (n.id.startsWith("Entrada") || n.id.startsWith("Cruce")) {
+                        n.lat = base.lat;
+                        n.lng = base.lng;
+                    } else {
+                        n.lat = base.lat + (Math.random() - 0.5) * 0.00005;
+                        n.lng = base.lng + (Math.random() - 0.5) * 0.00005;
+                    }
+
+                    // crear marcador
+                    let m = L.marker([n.lat, n.lng]).addTo(map).bindPopup(n.id);
+                    markers[n.id] = m;
+
+                    // agregar opciones a los selects
+                    let opt = document.createElement("option");
+                    opt.value = n.id;
+                    opt.textContent = n.id;
+                    startSelect.appendChild(opt.cloneNode(true));
+                    endSelect.appendChild(opt);
+                });
+
+
+                // construir edges con pesos
+                edges = data.edges.map(e => {
+                    let a = nodes.find(n => n.id === e.from);
+                    let b = nodes.find(n => n.id === e.to);
+                    return { source: a.id, target: b.id, weight: distancia([a.lat, a.lng], [b.lat, b.lng]) };
+                });
+            });
+
+        routeBtn.addEventListener("click", () => {
+            let start = startSelect.value, end = endSelect.value;
+            let path = dijkstra(start, end);
+            if (!path) { alert("No hay ruta."); return; }
+            if (routeLayer) map.removeLayer(routeLayer);
+            let latlngs = path.map(id => markers[id].getLatLng());
+            routeLayer = L.polyline(latlngs, { color: "blue", weight: 4 }).addTo(map);
+            map.fitBounds(routeLayer.getBounds());
+        });
+    </script>
+</body>
+
+</html>
