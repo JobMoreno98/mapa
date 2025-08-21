@@ -1,282 +1,761 @@
 {
-    "nodes": [
-        {
-            "id": "Entrada A",
-            "edificio": "Edificio A",
-            "piso": "PB"
-        },
-        {
-            "id": "FBA 1",
-            "edificio": "Edificio A",
-            "piso": "1"
-        },
-        {
-            "id": "FBA 2",
-            "edificio": "Edificio A",
-            "piso": "1"
-        },
-        {
-            "id": "FBA 3",
-            "edificio": "Edificio A",
-            "piso": "1"
-        },
-        {
-            "id": "Entrada C",
-            "edificio": "Edificio C",
-            "piso": "PB"
-        },
-        {
-            "id": "FBC 1",
-            "edificio": "Edificio C",
-            "piso": "1"
-        },
-        {
-            "id": "FBC 2",
-            "edificio": "Edificio C",
-            "piso": "1"
-        },
-        {
-            "id": "FBC 3",
-            "edificio": "Edificio C",
-            "piso": "1"
-        },
-        {
-            "id": "Entrada D",
-            "edificio": "Edificio D",
-            "piso": "PB"
-        },
-        {
-            "id": "FBD 1",
-            "edificio": "Edificio D",
-            "piso": "1"
-        },
-        {
-            "id": "FBD 2",
-            "edificio": "Edificio D",
-            "piso": "1"
-        },
-        {
-            "id": "FBD 3",
-            "edificio": "Edificio D",
-            "piso": "1"
-        },
-        {
-            "id": "Entrada F4",
-            "edificio": "Edificio F4",
-            "piso": "PB"
-        },
-        {
-            "id": "FBF4 1",
-            "edificio": "Edificio F4",
-            "piso": "1"
-        },
-        {
-            "id": "FBF4 2",
-            "edificio": "Edificio F4",
-            "piso": "1"
-        },
-        {
-            "id": "FBF4 3",
-            "edificio": "Edificio F4",
-            "piso": "1"
-        },
-        {
-            "id": "Entrada G",
-            "edificio": "Edificio G",
-            "piso": "PB"
-        },
-        {
-            "id": "FBG 1",
-            "edificio": "Edificio G",
-            "piso": "1"
-        },
-        {
-            "id": "FBG 2",
-            "edificio": "Edificio G",
-            "piso": "1"
-        },
-        {
-            "id": "FBG 3",
-            "edificio": "Edificio G",
-            "piso": "1"
-        },
-        {
-            "id": "Entrada H",
-            "edificio": "Edificio H",
-            "piso": "PB"
-        },
-        {
-            "id": "FBH 1",
-            "edificio": "Edificio H",
-            "piso": "1"
-        },
-        {
-            "id": "FBH 2",
-            "edificio": "Edificio H",
-            "piso": "1"
-        },
-        {
-            "id": "FBH 3",
-            "edificio": "Edificio H",
-            "piso": "1"
-        },
-        {
-            "id": "Entrada I",
-            "edificio": "Edificio I",
-            "piso": "PB"
-        },
-        {
-            "id": "FBI 1",
-            "edificio": "Edificio I",
-            "piso": "1"
-        },
-        {
-            "id": "FBI 2",
-            "edificio": "Edificio I",
-            "piso": "1"
-        },
-        {
-            "id": "FBI 3",
-            "edificio": "Edificio I",
-            "piso": "1"
-        },
-        {
-            "id": "Cruce 1",
-            "edificio": "Cruce",
-            "piso": "PB"
-        },
-        {
-            "id": "Cruce 2",
-            "edificio": "Cruce",
-            "piso": "PB"
-        },
-        {
-            "id": "Cruce 3",
-            "edificio": "Cruce",
-            "piso": "PB"
-        },
-        {
-            "id": "Cruce 4",
-            "edificio": "Cruce",
-            "piso": "PB"
-        }
-    ],
-    "edges": [
-        {
-            "from": "FBA 1",
-            "to": "Entrada A"
-        },
-        {
-            "from": "FBA 2",
-            "to": "Entrada A"
-        },
-        {
-            "from": "FBA 3",
-            "to": "Entrada A"
-        },
-        {
-            "from": "FBC 1",
-            "to": "Entrada C"
-        },
-        {
-            "from": "FBC 2",
-            "to": "Entrada C"
-        },
-        {
-            "from": "FBC 3",
-            "to": "Entrada C"
-        },
-        {
-            "from": "FBD 1",
-            "to": "Entrada D"
-        },
-        {
-            "from": "FBD 2",
-            "to": "Entrada D"
-        },
-        {
-            "from": "FBD 3",
-            "to": "Entrada D"
-        },
-        {
-            "from": "FBF4 1",
-            "to": "Entrada F4"
-        },
-        {
-            "from": "FBF4 2",
-            "to": "Entrada F4"
-        },
-        {
-            "from": "FBF4 3",
-            "to": "Entrada F4"
-        },
-        {
-            "from": "FBG 1",
-            "to": "Entrada G"
-        },
-        {
-            "from": "FBG 2",
-            "to": "Entrada G"
-        },
-        {
-            "from": "FBG 3",
-            "to": "Entrada G"
-        },
-        {
-            "from": "FBH 1",
-            "to": "Entrada H"
-        },
-        {
-            "from": "FBH 2",
-            "to": "Entrada H"
-        },
-        {
-            "from": "FBH 3",
-            "to": "Entrada H"
-        },
-        {
-            "from": "FBI 1",
-            "to": "Entrada I"
-        },
-        {
-            "from": "FBI 2",
-            "to": "Entrada I"
-        },
-        {
-            "from": "FBI 3",
-            "to": "Entrada I"
-        },
-        {
-            "from": "Entrada A",
-            "to": "Cruce 1"
-        },
-        {
-            "from": "Cruce 1",
-            "to": "Entrada G"
-        },
-        {
-            "from": "Entrada C",
-            "to": "Cruce 2"
-        },
-        {
-            "from": "Cruce 2",
-            "to": "Entrada H"
-        },
-        {
-            "from": "Entrada D",
-            "to": "Cruce 3"
-        },
-        {
-            "from": "Cruce 3",
-            "to": "Entrada I"
-        },
-        {
-            "from": "Cruce 1",
-            "to": "Cruce 2"
-        },
-        {
-            "from": "Cruce 2",
-            "to": "Cruce 3"
-        }
-    ]
+  "nodes": [
+    { "id": "Puerta 1", "edificio": "Puerta 1", "piso": "PB" },
+    { "id": "Puerta 2", "edificio": "Puerta 2", "piso": "PB" },
+    { "id": "Puerta 3", "edificio": "Puerta 3", "piso": "PB" },
+    { "id": "Puerta 4", "edificio": "Puerta 4", "piso": "PB" },
+    { "id": "Puerta 6", "edificio": "Puerta 6", "piso": "PB" },
+
+    {
+      "id": "Entrada Edificio  A",
+      "edificio": "Edificio A",
+      "piso": "PB",
+      "lat": 20.740521455410132,
+      "lng": -103.3771326517365
+    },
+    {
+      "id": "Entrada Edificio  B",
+      "edificio": "Edificio B",
+      "piso": "PB",
+      "lat": 20.740608755481077,
+      "lng": -103.37716756914784
+    },
+    {
+      "id": "Entrada Edificio  C",
+      "edificio": "Edificio C",
+      "piso": "PB",
+      "lat": 20.74092418441377,
+      "lng": -103.37745456550215
+    },
+    { "id": "Entrada Edificio  D", "edificio": "Edificio D", "piso": "PB" },
+    { "id": "Entrada Edificio  F4", "edificio": "Edificio F4", "piso": "PB" },
+    { "id": "Entrada Edificio  G", "edificio": "Edificio G", "piso": "PB" },
+    { "id": "Entrada Edificio  H", "edificio": "Edificio H", "piso": "PB" },
+    { "id": "Entrada Edificio  I", "edificio": "Edificio I", "piso": "PB" },
+    { "id": "Entrada Edificio  I Costado", "edificio": "Edificio I 2", "piso": "PB" },
+
+    { "id": "BIBLIOTECA", "edificio": "Edificio B", "piso": "PB" },
+
+    { "id": "Cruce 1", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 2", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 3", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 4", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 5", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 6", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 7", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 8", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 9", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 10", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 11", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 12", "edificio": "Cruce", "piso": "PB" },
+    { "id": "Cruce 13", "edificio": "Cruce", "piso": "PB" },
+
+    {
+      "id": "Cruce 14",
+      "edificio": "Cruce",
+      "piso": "PB",
+      "lat": 20.739316171492547,
+      "lng": -103.37826186166372
+    },
+    {
+      "id": "Cruce 15",
+      "edificio": "Cruce",
+      "piso": "PB",
+      "lat": 20.73947796354109,
+      "lng": -103.37814384447576
+    },
+    {
+      "id": "Cruce 16",
+      "edificio": "Cruce",
+      "piso": "PB",
+      "lat": 20.740202890142875,
+      "lng": -103.37799364077826
+    },
+    {
+      "id": "Cruce 17",
+      "edificio": "Cruce",
+      "piso": "PB",
+      "lat": 20.740191602385224,
+      "lng": -103.37782600272718
+    },
+
+    {
+      "id": "Cruce 18",
+      "edificio": "Cruce",
+      "piso": "PB",
+      "lat": 20.740621790785415,
+      "lng": -103.37765568245591
+    },
+
+    { "id": "Edificio A-PB-Escalera", "edificio": "Edificio A", "piso": "PB" },
+    { "id": "FBA 1", "edificio": "Edificio A", "piso": "PB" },
+    { "id": "FBA 2", "edificio": "Edificio A", "piso": "PB" },
+    { "id": "FBA 3", "edificio": "Edificio A", "piso": "PB" },
+    { "id": "FBA 4", "edificio": "Edificio A", "piso": "PB" },
+    { "id": "Edificio A-P1-Escalera", "edificio": "Edificio A", "piso": "1" },
+    { "id": "FBA 7", "edificio": "Edificio A", "piso": "1" },
+    { "id": "FBA 8", "edificio": "Edificio A", "piso": "1" },
+    { "id": "Edificio A-P2-Escalera", "edificio": "Edificio A", "piso": "2" },
+    { "id": "FBA 10", "edificio": "Edificio A", "piso": "2" },
+    { "id": "FBA 11", "edificio": "Edificio A", "piso": "2" },
+    { "id": "FBA 12", "edificio": "Edificio A", "piso": "2" },
+    { "id": "FBA 13", "edificio": "Edificio A", "piso": "2" },
+    { "id": "FBA 14", "edificio": "Edificio A", "piso": "2" },
+    { "id": "FBA 15", "edificio": "Edificio A", "piso": "2" },
+    { "id": "FBA 16", "edificio": "Edificio A", "piso": "2" },
+    { "id": "FBA 9", "edificio": "Edificio A", "piso": "2" },
+
+    { "id": "Edificio B-P1-Escalera", "edificio": "Edificio B", "piso": "1" },
+    { "id": "FBF1 1", "edificio": "Edificio F1", "piso": "1" },
+
+    {
+      "id": "Edificio C-PB-Escalera",
+      "edificio": "Edificio C",
+      "piso": "PB",
+      "lat": 20.74085835783948,
+      "lng": -103.37739844631983
+    },
+    {
+      "id": "Sala de Juntas Fernando Carlos Vevia Romero",
+      "edificio": "Edificio C",
+      "piso": "PB",
+      "lat": 20.740985030957674,
+      "lng": -103.37723080826875
+    },
+    { "id": "Edificio C-P1-Escalera", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 1", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 10", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 2", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 3", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 4", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 5", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 6", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 7", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 8", "edificio": "Edificio C", "piso": "1" },
+    { "id": "FBC 9", "edificio": "Edificio C", "piso": "1" },
+    { "id": "Edificio C-P2-Escalera", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 11", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 12", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 13", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 14", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 15", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 16", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 17", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 18", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 19", "edificio": "Edificio C", "piso": "2" },
+    { "id": "FBC 20", "edificio": "Edificio C", "piso": "2" },
+    { "id": "Edificio C-P3-Escalera", "edificio": "Edificio C", "piso": "3" },
+    { "id": "FBC 21", "edificio": "Edificio C", "piso": "3" },
+    { "id": "FBC 22", "edificio": "Edificio C", "piso": "3" },
+    { "id": "FBC 23", "edificio": "Edificio C", "piso": "3" },
+    { "id": "FBC 24", "edificio": "Edificio C", "piso": "3" },
+    { "id": "FBC 25", "edificio": "Edificio C", "piso": "3" },
+    { "id": "FBC 26", "edificio": "Edificio C", "piso": "3" },
+
+    { "id": "Edificio D-PB-Escalera", "edificio": "Edificio D", "piso": "PB" },
+    { "id": "FBD 1", "edificio": "Edificio D", "piso": "PB" },
+    { "id": "FBD 2", "edificio": "Edificio D", "piso": "PB" },
+    { "id": "Edificio D-P1-Escalera", "edificio": "Edificio D", "piso": "1" },
+    { "id": "FBD 3", "edificio": "Edificio D", "piso": "1" },
+    { "id": "FBD 4", "edificio": "Edificio D", "piso": "1" },
+    { "id": "FBD 6", "edificio": "Edificio D", "piso": "1" },
+    { "id": "FBD 7", "edificio": "Edificio D", "piso": "1" },
+    { "id": "FBD 8", "edificio": "Edificio D", "piso": "1" },
+    { "id": "FBD 9", "edificio": "Edificio D", "piso": "1" },
+    { "id": "Edificio D-P2-Escalera", "edificio": "Edificio D", "piso": "2" },
+    { "id": "FBD 10", "edificio": "Edificio D", "piso": "2" },
+    { "id": "FBD 11", "edificio": "Edificio D", "piso": "2" },
+    { "id": "FBD 13", "edificio": "Edificio D", "piso": "2" },
+    { "id": "FBD 14", "edificio": "Edificio D", "piso": "2" },
+    { "id": "FBD 15", "edificio": "Edificio D", "piso": "2" },
+    { "id": "FBD 16", "edificio": "Edificio D", "piso": "2" },
+    { "id": "Edificio D-P3-Escalera", "edificio": "Edificio D", "piso": "3" },
+    { "id": "FBD 17", "edificio": "Edificio D", "piso": "3" },
+    { "id": "FBD 18", "edificio": "Edificio D", "piso": "3" },
+    { "id": "FBD 20", "edificio": "Edificio D", "piso": "3" },
+    { "id": "FBD 21", "edificio": "Edificio D", "piso": "3" },
+    { "id": "FBD 22", "edificio": "Edificio D", "piso": "3" },
+    { "id": "FBD 23", "edificio": "Edificio D", "piso": "3" },
+    { "id": "Edificio D-P4-Escalera", "edificio": "Edificio D", "piso": "4" },
+    { "id": "FBD 24", "edificio": "Edificio D", "piso": "4" },
+    { "id": "FBD 25", "edificio": "Edificio D", "piso": "4" },
+
+    {
+      "id": "Edificio F4-PB-Escalera",
+      "edificio": "Edificio F4",
+      "piso": "PB"
+    },
+    { "id": "Edificio F4-P1-Escalera", "edificio": "Edificio F4", "piso": "1" },
+    { "id": "Edificio F4-P2-Escalera", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 1", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 10", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 2", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 3", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 4", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 5", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 6", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 7", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 8", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "FBF4 9", "edificio": "Edificio F4", "piso": "2" },
+    { "id": "Edificio F4-P3-Escalera", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 11", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 12", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 13", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 14", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 15", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 16", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 17", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 18", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 19", "edificio": "Edificio F4", "piso": "3" },
+    { "id": "FBF4 20", "edificio": "Edificio F4", "piso": "3" },
+
+    { "id": "Edificio G-PB-Escalera", "edificio": "Edificio G", "piso": "PB" },
+    { "id": "FBG 1", "edificio": "Edificio G", "piso": "PB" },
+    { "id": "FBG 2", "edificio": "Edificio G", "piso": "PB" },
+    { "id": "FBG 3", "edificio": "Edificio G", "piso": "PB" },
+    { "id": "FBG 4", "edificio": "Edificio G", "piso": "PB" },
+    { "id": "FBG 5", "edificio": "Edificio G", "piso": "PB" },
+    { "id": "FBG 6", "edificio": "Edificio G", "piso": "PB" },
+    {
+      "id": "Sala de Juicios Orales 1",
+      "edificio": "Edificio G",
+      "piso": "PB"
+    },
+    { "id": "Edificio G-P1-Escalera", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 10", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 11", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 12", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 13", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 14", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 15", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 16", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 7", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 8", "edificio": "Edificio G", "piso": "1" },
+    { "id": "FBG 9", "edificio": "Edificio G", "piso": "1" },
+    { "id": "Edificio G-P2-Escalera", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 17", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 18", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 19", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 20", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 21", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 22", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 23", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 24", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 25", "edificio": "Edificio G", "piso": "2" },
+    { "id": "FBG 26", "edificio": "Edificio G", "piso": "2" },
+    { "id": "Edificio G-P3-Escalera", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 27", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 28", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 29", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 30", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 31", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 32", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 33", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 34", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 35", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 36", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 37", "edificio": "Edificio G", "piso": "3" },
+    { "id": "FBG 38", "edificio": "Edificio G", "piso": "3" },
+
+    { "id": "Edificio H-PB-Escalera", "edificio": "Edificio H", "piso": "PB" },
+    { "id": "FBH 1", "edificio": "Edificio H", "piso": "PB" },
+    { "id": "FBH 2", "edificio": "Edificio H", "piso": "PB" },
+    { "id": "FBH 3", "edificio": "Edificio H", "piso": "PB" },
+    { "id": "FBH 4", "edificio": "Edificio H", "piso": "PB" },
+    { "id": "FBH 5", "edificio": "Edificio H", "piso": "PB" },
+    { "id": "FBH 6", "edificio": "Edificio H", "piso": "PB" },
+    { "id": "Edificio H-P1-Escalera", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 10", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 11", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 12", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 13", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 14", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 15", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 16", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 7", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 8", "edificio": "Edificio H", "piso": "1" },
+    { "id": "FBH 9", "edificio": "Edificio H", "piso": "1" },
+    { "id": "Edificio H-P2-Escalera", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 17", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 18", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 19", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 20", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 21", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 22", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 23", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 24", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 25", "edificio": "Edificio H", "piso": "2" },
+    { "id": "FBH 26", "edificio": "Edificio H", "piso": "2" },
+    { "id": "Edificio H-P3-Escalera", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 27", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 28", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 29", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 30", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 31", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 32", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 33", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 34", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 35", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 36", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 37", "edificio": "Edificio H", "piso": "3" },
+    { "id": "FBH 38", "edificio": "Edificio H", "piso": "3" },
+
+    {
+      "id": "Edificio I-PB-Escalera",
+      "edificio": "Edificio I",
+      "piso": "PB",
+      "lat": 20.74127006305792,
+      "lng": -103.37599483331606
+    },
+    { "id": "FBI 1", "edificio": "Edificio I", "piso": "PB" },
+    { "id": "FBI 2", "edificio": "Edificio I", "piso": "PB" },
+    { "id": "FBI 3", "edificio": "Edificio I", "piso": "PB" },
+    { "id": "FBI 4", "edificio": "Edificio I", "piso": "PB" },
+    { "id": "FBI 5", "edificio": "Edificio I", "piso": "PB" },
+    { "id": "FBI 6", "edificio": "Edificio I", "piso": "PB" },
+    {
+      "id": "Edificio I-P1-Escalera",
+      "edificio": "Edificio I",
+      "piso": "1",
+      "lat": 20.74127006305792,
+      "lng": -103.37599483331606
+    },
+    { "id": "FBI 10", "edificio": "Edificio I", "piso": "1" },
+    { "id": "FBI 11", "edificio": "Edificio I", "piso": "1" },
+    { "id": "FBI 12", "edificio": "Edificio I", "piso": "1" },
+    { "id": "FBI 13", "edificio": "Edificio I", "piso": "1" },
+    { "id": "FBI 14", "edificio": "Edificio I", "piso": "1" },
+    { "id": "FBI 15", "edificio": "Edificio I", "piso": "1" },
+    { "id": "FBI 16", "edificio": "Edificio I", "piso": "1" },
+    { "id": "FBI 7", "edificio": "Edificio I", "piso": "1" },
+    { "id": "FBI 8", "edificio": "Edificio I", "piso": "1" },
+    { "id": "FBI 9", "edificio": "Edificio I", "piso": "1" },
+    {
+      "id": "Edificio I-P2-Escalera",
+      "edificio": "Edificio I",
+      "piso": "2",
+      "lat": 20.74127006305792,
+      "lng": -103.37599483331606
+    },
+    { "id": "FBI 17", "edificio": "Edificio I", "piso": "2" },
+    { "id": "FBI 18", "edificio": "Edificio I", "piso": "2" },
+    { "id": "FBI 19", "edificio": "Edificio I", "piso": "2" },
+    { "id": "FBI 20", "edificio": "Edificio I", "piso": "2" },
+    { "id": "FBI 21", "edificio": "Edificio I", "piso": "2" },
+    { "id": "FBI 22", "edificio": "Edificio I", "piso": "2" },
+    { "id": "FBI 23", "edificio": "Edificio I", "piso": "2" },
+    { "id": "FBI 24", "edificio": "Edificio I", "piso": "2" },
+    { "id": "FBI 25", "edificio": "Edificio I", "piso": "2" },
+    { "id": "FBI 26", "edificio": "Edificio I", "piso": "2" },
+    {
+      "id": "Edificio I-P3-Escalera",
+      "edificio": "Edificio I",
+      "piso": "3",
+      "lat": 20.74127006305792,
+      "lng": -103.37599483331606
+    },
+    { "id": "FBI 27", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 28", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 29", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 30", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 31", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 32", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 33", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 34", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 35", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 36", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 37", "edificio": "Edificio I", "piso": "3" },
+    { "id": "FBI 38", "edificio": "Edificio I", "piso": "3" }
+  ],
+  "edges": [
+    { "from": "Entrada Edificio  A", "to": "Edificio A-PB-Escalera", "weight": 5.0 },
+    { "from": "FBA 1", "to": "FBA 2", "weight": 5.0 },
+    { "from": "FBA 2", "to": "FBA 3", "weight": 5.0 },
+    { "from": "FBA 3", "to": "FBA 4", "weight": 5.0 },
+    { "from": "FBA 4", "to": "Edificio A-PB-Escalera", "weight": 10.0 },
+
+    { "from": "FBA 7", "to": "FBA 8", "weight": 5.0 },
+    { "from": "FBA 8", "to": "Edificio A-P1-Escalera", "weight": 10.0 },
+
+    { "from": "FBA 9", "to": "FBA 10", "weight": 5.0 },
+    { "from": "FBA 10", "to": "FBA 11", "weight": 5.0 },
+    { "from": "FBA 11", "to": "FBA 12", "weight": 5.0 },
+    { "from": "FBA 12", "to": "FBA 13", "weight": 5.0 },
+    { "from": "FBA 13", "to": "FBA 14", "weight": 5.0 },
+    { "from": "FBA 14", "to": "FBA 15", "weight": 5.0 },
+    { "from": "FBA 15", "to": "FBA 16", "weight": 5.0 },
+    { "from": "FBA 16", "to": "Edificio A-P2-Escalera", "weight": 10.0 },
+
+    {
+      "from": "Edificio A-PB-Escalera",
+      "to": "Edificio A-P1-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio A-P1-Escalera",
+      "to": "Edificio A-P2-Escalera",
+      "weight": 5.0
+    },
+
+    { "from": "Entrada Edificio  B", "to": "BIBLIOTECA" },
+    { "from": "BIBLIOTECA", "to": "FBF1 1", "weight": 5.0 },
+
+    {
+      "from": "Entrada Edificio  C",
+      "to": "Sala de Juntas Fernando Carlos Vevia Romero"
+    },
+    {
+      "from": "Sala de Juntas Fernando Carlos Vevia Romero",
+      "to": "Edificio C-PB-Escalera"
+    },
+
+    { "from": "FBC 1", "to": "FBC 2", "weight": 5.0 },
+    { "from": "FBC 2", "to": "FBC 3", "weight": 5.0 },
+    { "from": "FBC 3", "to": "FBC 4", "weight": 5.0 },
+    { "from": "FBC 4", "to": "FBC 5", "weight": 5.0 },
+    { "from": "FBC 5", "to": "FBC 6", "weight": 5.0 },
+    { "from": "FBC 6", "to": "FBC 7", "weight": 5.0 },
+    { "from": "FBC 7", "to": "FBC 8", "weight": 5.0 },
+    { "from": "FBC 8", "to": "FBC 9", "weight": 5.0 },
+    { "from": "FBC 9", "to": "FBC 10", "weight": 5.0 },
+    { "from": "FBC 10", "to": "Edificio C-P1-Escalera", "weight": 10.0 },
+
+    { "from": "FBC 11", "to": "FBC 12", "weight": 5.0 },
+    { "from": "FBC 12", "to": "FBC 13", "weight": 5.0 },
+    { "from": "FBC 13", "to": "FBC 14", "weight": 5.0 },
+    { "from": "FBC 14", "to": "FBC 15", "weight": 5.0 },
+    { "from": "FBC 15", "to": "FBC 16", "weight": 5.0 },
+    { "from": "FBC 16", "to": "FBC 17", "weight": 5.0 },
+    { "from": "FBC 17", "to": "FBC 18", "weight": 5.0 },
+    { "from": "FBC 18", "to": "FBC 19", "weight": 5.0 },
+    { "from": "FBC 19", "to": "FBC 20", "weight": 5.0 },
+    { "from": "FBC 20", "to": "Edificio C-P2-Escalera", "weight": 10.0 },
+
+    { "from": "FBC 21", "to": "FBC 22", "weight": 5.0 },
+    { "from": "FBC 22", "to": "FBC 23", "weight": 5.0 },
+    { "from": "FBC 23", "to": "FBC 24", "weight": 5.0 },
+    { "from": "FBC 24", "to": "FBC 25", "weight": 5.0 },
+    { "from": "FBC 25", "to": "FBC 26", "weight": 5.0 },
+    { "from": "FBC 26", "to": "Edificio C-P3-Escalera", "weight": 10.0 },
+
+    {
+      "from": "Edificio C-PB-Escalera",
+      "to": "Edificio C-P1-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio C-P1-Escalera",
+      "to": "Edificio C-P2-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio C-P2-Escalera",
+      "to": "Edificio C-P3-Escalera",
+      "weight": 5.0
+    },
+
+    { "from": "Entrada Edificio  D", "to": "FBD 1", "weight": 10.0 },
+    { "from": "FBD 1", "to": "FBD 2", "weight": 5.0 },
+    { "from": "FBD 2", "to": "Edificio D-PB-Escalera", "weight": 10.0 },
+
+    { "from": "FBD 3", "to": "FBD 4", "weight": 5.0 },
+    { "from": "FBD 4", "to": "FBD 6", "weight": 5.0 },
+    { "from": "FBD 6", "to": "FBD 7", "weight": 5.0 },
+    { "from": "FBD 7", "to": "FBD 8", "weight": 5.0 },
+    { "from": "FBD 8", "to": "FBD 9", "weight": 5.0 },
+    { "from": "FBD 9", "to": "Edificio D-P1-Escalera", "weight": 10.0 },
+
+    { "from": "FBD 10", "to": "FBD 11", "weight": 5.0 },
+    { "from": "FBD 11", "to": "FBD 13", "weight": 5.0 },
+    { "from": "FBD 13", "to": "FBD 14", "weight": 5.0 },
+    { "from": "FBD 14", "to": "FBD 15", "weight": 5.0 },
+    { "from": "FBD 15", "to": "FBD 16", "weight": 5.0 },
+    { "from": "FBD 16", "to": "Edificio D-P2-Escalera", "weight": 10.0 },
+
+    { "from": "FBD 17", "to": "FBD 18", "weight": 5.0 },
+    { "from": "FBD 18", "to": "FBD 20", "weight": 5.0 },
+    { "from": "FBD 20", "to": "FBD 21", "weight": 5.0 },
+    { "from": "FBD 21", "to": "FBD 22", "weight": 5.0 },
+    { "from": "FBD 22", "to": "FBD 23", "weight": 5.0 },
+    { "from": "FBD 23", "to": "Edificio D-P3-Escalera", "weight": 10.0 },
+
+    { "from": "FBD 24", "to": "FBD 25", "weight": 5.0 },
+    { "from": "FBD 25", "to": "Edificio D-P4-Escalera", "weight": 10.0 },
+
+    {
+      "from": "Edificio D-PB-Escalera",
+      "to": "Edificio D-P1-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio D-P1-Escalera",
+      "to": "Edificio D-P2-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio D-P2-Escalera",
+      "to": "Edificio D-P3-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio D-P3-Escalera",
+      "to": "Edificio D-P4-Escalera",
+      "weight": 5.0
+    },
+
+    { "from": "Entrada Edificio  F4", "to": "Edificio F4-P2-Escalera", "weight": 10.0 },
+
+    { "from": "FBF4 1", "to": "FBF4 2", "weight": 5.0 },
+    { "from": "FBF4 2", "to": "FBF4 3", "weight": 5.0 },
+    { "from": "FBF4 3", "to": "FBF4 4", "weight": 5.0 },
+    { "from": "FBF4 4", "to": "FBF4 5", "weight": 5.0 },
+    { "from": "FBF4 5", "to": "FBF4 6", "weight": 5.0 },
+    { "from": "FBF4 6", "to": "FBF4 7", "weight": 5.0 },
+    { "from": "FBF4 7", "to": "FBF4 8", "weight": 5.0 },
+    { "from": "FBF4 8", "to": "FBF4 9", "weight": 5.0 },
+    { "from": "FBF4 9", "to": "FBF4 10", "weight": 5.0 },
+    { "from": "FBF4 10", "to": "Edificio F4-P2-Escalera", "weight": 10.0 },
+
+    { "from": "FBF4 11", "to": "FBF4 12", "weight": 5.0 },
+    { "from": "FBF4 12", "to": "FBF4 13", "weight": 5.0 },
+    { "from": "FBF4 13", "to": "FBF4 14", "weight": 5.0 },
+    { "from": "FBF4 14", "to": "FBF4 15", "weight": 5.0 },
+    { "from": "FBF4 15", "to": "FBF4 16", "weight": 5.0 },
+    { "from": "FBF4 16", "to": "FBF4 17", "weight": 5.0 },
+    { "from": "FBF4 17", "to": "FBF4 18", "weight": 5.0 },
+    { "from": "FBF4 18", "to": "FBF4 19", "weight": 5.0 },
+    { "from": "FBF4 19", "to": "FBF4 20", "weight": 5.0 },
+    { "from": "FBF4 20", "to": "Edificio F4-P3-Escalera", "weight": 10.0 },
+
+    {
+      "from": "Edificio F4-P2-Escalera",
+      "to": "Edificio F4-P3-Escalera",
+      "weight": 5.0
+    },
+
+    { "from": "Entrada Edificio  G", "to": "FBG 1", "weight": 10.0 },
+    { "from": "FBG 1", "to": "FBG 2", "weight": 5.0 },
+    { "from": "FBG 2", "to": "FBG 3", "weight": 5.0 },
+    { "from": "FBG 3", "to": "FBG 4", "weight": 5.0 },
+    { "from": "FBG 4", "to": "FBG 5", "weight": 5.0 },
+    { "from": "FBG 5", "to": "FBG 6", "weight": 5.0 },
+    { "from": "FBG 6", "to": "Sala de Juicios Orales 1", "weight": 5.0 },
+    {
+      "from": "Sala de Juicios Orales 1",
+      "to": "Edificio G-PB-Escalera",
+      "weight": 10.0
+    },
+
+    { "from": "FBG 7", "to": "FBG 8", "weight": 5.0 },
+    { "from": "FBG 8", "to": "FBG 9", "weight": 5.0 },
+    { "from": "FBG 9", "to": "FBG 10", "weight": 5.0 },
+    { "from": "FBG 10", "to": "FBG 11", "weight": 5.0 },
+    { "from": "FBG 11", "to": "FBG 12", "weight": 5.0 },
+    { "from": "FBG 12", "to": "FBG 13", "weight": 5.0 },
+    { "from": "FBG 13", "to": "FBG 14", "weight": 5.0 },
+    { "from": "FBG 14", "to": "FBG 15", "weight": 5.0 },
+    { "from": "FBG 15", "to": "FBG 16", "weight": 5.0 },
+    { "from": "FBG 16", "to": "Edificio G-P1-Escalera", "weight": 10.0 },
+
+    { "from": "FBG 17", "to": "FBG 18", "weight": 5.0 },
+    { "from": "FBG 18", "to": "FBG 19", "weight": 5.0 },
+    { "from": "FBG 19", "to": "FBG 20", "weight": 5.0 },
+    { "from": "FBG 20", "to": "FBG 21", "weight": 5.0 },
+    { "from": "FBG 21", "to": "FBG 22", "weight": 5.0 },
+    { "from": "FBG 22", "to": "FBG 23", "weight": 5.0 },
+    { "from": "FBG 23", "to": "FBG 24", "weight": 5.0 },
+    { "from": "FBG 24", "to": "FBG 25", "weight": 5.0 },
+    { "from": "FBG 25", "to": "FBG 26", "weight": 5.0 },
+    { "from": "FBG 26", "to": "Edificio G-P2-Escalera", "weight": 10.0 },
+
+    { "from": "FBG 27", "to": "FBG 28", "weight": 5.0 },
+    { "from": "FBG 28", "to": "FBG 29", "weight": 5.0 },
+    { "from": "FBG 29", "to": "FBG 30", "weight": 5.0 },
+    { "from": "FBG 30", "to": "FBG 31", "weight": 5.0 },
+    { "from": "FBG 31", "to": "FBG 32", "weight": 5.0 },
+    { "from": "FBG 32", "to": "FBG 33", "weight": 5.0 },
+    { "from": "FBG 33", "to": "FBG 34", "weight": 5.0 },
+    { "from": "FBG 34", "to": "FBG 35", "weight": 5.0 },
+    { "from": "FBG 35", "to": "FBG 36", "weight": 5.0 },
+    { "from": "FBG 36", "to": "FBG 37", "weight": 5.0 },
+    { "from": "FBG 37", "to": "FBG 38", "weight": 5.0 },
+    { "from": "FBG 38", "to": "Edificio G-P3-Escalera", "weight": 10.0 },
+
+    {
+      "from": "Edificio G-PB-Escalera",
+      "to": "Edificio G-P1-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio G-P1-Escalera",
+      "to": "Edificio G-P2-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio G-P2-Escalera",
+      "to": "Edificio G-P3-Escalera",
+      "weight": 5.0
+    },
+
+    { "from": "Entrada Edificio  H", "to": "FBH 1", "weight": 10.0 },
+    { "from": "FBH 1", "to": "FBH 2", "weight": 5.0 },
+    { "from": "FBH 2", "to": "FBH 3", "weight": 5.0 },
+    { "from": "FBH 3", "to": "FBH 4", "weight": 5.0 },
+    { "from": "FBH 4", "to": "FBH 5", "weight": 5.0 },
+    { "from": "FBH 5", "to": "FBH 6", "weight": 5.0 },
+    { "from": "FBH 6", "to": "Edificio H-PB-Escalera", "weight": 10.0 },
+
+    { "from": "FBH 7", "to": "FBH 8", "weight": 5.0 },
+    { "from": "FBH 8", "to": "FBH 9", "weight": 5.0 },
+    { "from": "FBH 9", "to": "FBH 10", "weight": 5.0 },
+    { "from": "FBH 10", "to": "FBH 11", "weight": 5.0 },
+    { "from": "FBH 11", "to": "FBH 12", "weight": 5.0 },
+    { "from": "FBH 12", "to": "FBH 13", "weight": 5.0 },
+    { "from": "FBH 13", "to": "FBH 14", "weight": 5.0 },
+    { "from": "FBH 14", "to": "FBH 15", "weight": 5.0 },
+    { "from": "FBH 15", "to": "FBH 16", "weight": 5.0 },
+    { "from": "FBH 16", "to": "Edificio H-P1-Escalera", "weight": 10.0 },
+
+    { "from": "FBH 17", "to": "FBH 18", "weight": 5.0 },
+    { "from": "FBH 18", "to": "FBH 19", "weight": 5.0 },
+    { "from": "FBH 19", "to": "FBH 20", "weight": 5.0 },
+    { "from": "FBH 20", "to": "FBH 21", "weight": 5.0 },
+    { "from": "FBH 21", "to": "FBH 22", "weight": 5.0 },
+    { "from": "FBH 22", "to": "FBH 23", "weight": 5.0 },
+    { "from": "FBH 23", "to": "FBH 24", "weight": 5.0 },
+    { "from": "FBH 24", "to": "FBH 25", "weight": 5.0 },
+    { "from": "FBH 25", "to": "FBH 26", "weight": 5.0 },
+    { "from": "FBH 26", "to": "Edificio H-P2-Escalera", "weight": 10.0 },
+
+    { "from": "FBH 27", "to": "FBH 28", "weight": 5.0 },
+    { "from": "FBH 28", "to": "FBH 29", "weight": 5.0 },
+    { "from": "FBH 29", "to": "FBH 30", "weight": 5.0 },
+    { "from": "FBH 30", "to": "FBH 31", "weight": 5.0 },
+    { "from": "FBH 31", "to": "FBH 32", "weight": 5.0 },
+    { "from": "FBH 32", "to": "FBH 33", "weight": 5.0 },
+    { "from": "FBH 33", "to": "FBH 34", "weight": 5.0 },
+    { "from": "FBH 34", "to": "FBH 35", "weight": 5.0 },
+    { "from": "FBH 35", "to": "FBH 36", "weight": 5.0 },
+    { "from": "FBH 36", "to": "FBH 37", "weight": 5.0 },
+    { "from": "FBH 37", "to": "FBH 38", "weight": 5.0 },
+    { "from": "FBH 38", "to": "Edificio H-P3-Escalera", "weight": 10.0 },
+
+    {
+      "from": "Edificio H-PB-Escalera",
+      "to": "Edificio H-P1-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio H-P1-Escalera",
+      "to": "Edificio H-P2-Escalera",
+      "weight": 5.0
+    },
+    {
+      "from": "Edificio H-P2-Escalera",
+      "to": "Edificio H-P3-Escalera",
+      "weight": 5.0
+    },
+
+    { "from": "Entrada Edificio  I", "to": "FBI 1", "weight": 10.0 },
+    { "from": "FBI 1", "to": "FBI 2", "weight": 5.0 },
+    { "from": "FBI 2", "to": "FBI 3", "weight": 5.0 },
+    { "from": "FBI 3", "to": "FBI 4", "weight": 5.0 },
+    { "from": "FBI 4", "to": "FBI 5", "weight": 5.0 },
+    { "from": "FBI 5", "to": "FBI 6", "weight": 5.0 },
+    { "from": "FBI 6", "to": "Edificio I-PB-Escalera", "weight": 10.0 },
+
+    { "from": "FBI 7", "to": "FBI 8", "weight": 5.0 },
+    { "from": "FBI 8", "to": "FBI 9", "weight": 5.0 },
+    { "from": "FBI 9", "to": "FBI 10", "weight": 5.0 },
+    { "from": "FBI 10", "to": "FBI 11", "weight": 5.0 },
+    { "from": "FBI 11", "to": "FBI 12", "weight": 5.0 },
+    { "from": "FBI 12", "to": "FBI 13", "weight": 5.0 },
+    { "from": "FBI 13", "to": "FBI 14", "weight": 5.0 },
+    { "from": "FBI 14", "to": "FBI 15", "weight": 5.0 },
+    { "from": "FBI 15", "to": "FBI 16", "weight": 5.0 },
+    { "from": "FBI 16", "to": "Edificio I-P1-Escalera", "weight": 10.0 },
+
+    { "from": "FBI 17", "to": "FBI 18", "weight": 5.0 },
+    { "from": "FBI 18", "to": "FBI 19", "weight": 5.0 },
+    { "from": "FBI 19", "to": "FBI 20", "weight": 5.0 },
+    { "from": "FBI 20", "to": "FBI 21", "weight": 5.0 },
+    { "from": "FBI 21", "to": "FBI 22", "weight": 5.0 },
+    { "from": "FBI 22", "to": "FBI 23", "weight": 5.0 },
+    { "from": "FBI 23", "to": "FBI 24", "weight": 5.0 },
+    { "from": "FBI 24", "to": "FBI 25", "weight": 5.0 },
+    { "from": "FBI 25", "to": "FBI 26", "weight": 5.0 },
+    { "from": "FBI 26", "to": "Edificio I-P2-Escalera", "weight": 10.0 },
+
+    { "from": "FBI 27", "to": "FBI 28", "weight": 5.0 },
+    { "from": "FBI 28", "to": "FBI 29", "weight": 5.0 },
+    { "from": "FBI 29", "to": "FBI 30", "weight": 5.0 },
+    { "from": "FBI 30", "to": "FBI 31", "weight": 5.0 },
+    { "from": "FBI 31", "to": "FBI 32", "weight": 5.0 },
+    { "from": "FBI 32", "to": "FBI 33", "weight": 5.0 },
+    { "from": "FBI 33", "to": "FBI 34", "weight": 5.0 },
+    { "from": "FBI 34", "to": "FBI 35", "weight": 5.0 },
+    { "from": "FBI 35", "to": "FBI 36", "weight": 5.0 },
+    { "from": "FBI 36", "to": "FBI 37", "weight": 5.0 },
+    { "from": "FBI 37", "to": "FBI 38", "weight": 5.0 },
+    { "from": "FBI 38", "to": "Edificio I-P3-Escalera", "weight": 10.0 },
+
+    {
+      "from": "Edificio I-PB-Escalera",
+      "to": "Edificio I-P1-Escalera"
+    },
+    {
+      "from": "Edificio I-P1-Escalera",
+      "to": "Edificio I-P2-Escalera"
+    },
+    {
+      "from": "Edificio I-P2-Escalera",
+      "to": "Edificio I-P3-Escalera"
+    },
+
+    { "from": "Entrada Edificio  A", "to": "Edificio A-PB-Escalera" },
+    { "from": "Edificio A-PB-Escalera", "to": "Cruce 4" },
+
+    { "from": "BIBLIOTECA", "to": "Edificio B-P1-Escalera" },
+
+    { "from": "Cruce 4", "to": "Cruce 3" },
+    { "from": "Cruce 3", "to": "Entrada Edificio  I" },
+    { "from": "Cruce 3", "to": "Cruce 2" },
+    { "from": "Cruce 2", "to": "Cruce 1" },
+    { "from": "Cruce 2", "to": "Entrada Edificio  I" },
+    { "from": "Cruce 2", "to": "Entrada Edificio  H" },
+
+    { "from": "Cruce 8", "to": "Cruce 9" },
+    { "from": "Cruce 9", "to": "Cruce 10" },
+    { "from": "Cruce 10", "to": "Cruce 11" },
+
+    { "from": "Puerta 1", "to": "Cruce 4" },
+    { "from": "Puerta 1", "to": "Puerta 2" },
+    { "from": "Puerta 2", "to": "Puerta 1" },
+    { "from": "Puerta 4", "to": "Entrada Edificio  F4" },
+
+    { "from": "Puerta 6", "to": "Cruce 8" },
+    { "from": "Cruce 8", "to": "Cruce 7" },
+    { "from": "Cruce 7", "to": "Cruce 6" },
+    { "from": "Cruce 7", "to": "Entrada Edificio  I Costado" },
+    { "from": "Entrada Edificio  I Costado", "to": "Edificio I-PB-Escalera" },
+
+    { "from": "Puerta 2", "to": "Cruce 13" },
+    { "from": "Puerta 4", "to": "Cruce 13" },
+    { "from": "Cruce 13", "to": "Puerta 4" },
+    { "from": "Cruce 13", "to": "Cruce 12" },
+    { "from": "Cruce 12", "to": "Cruce 11" },
+    { "from": "Cruce 12", "to": "Puerta 1" },
+    { "from": "Cruce 13", "to": "Cruce 14" },
+    { "from": "Cruce 15", "to": "Cruce 16" },
+    { "from": "Cruce 16", "to": "Cruce 17" },
+    { "from": "Puerta 3", "to": "Cruce 16" },
+    { "from": "Cruce 17", "to": "Cruce 18" },
+    { "from": "Cruce 18", "to": "Entrada Edificio  A" },
+
+    { "from": "Cruce 4", "to": "Entrada Edificio  A" },
+    { "from": "Cruce 4", "to": "Entrada Edificio  B" },
+    { "from": "Entrada Edificio  A", "to": "Entrada Edificio  B" },
+
+    { "from": "FBF1 1", "to": "FBC 1" }
+  ]
 }

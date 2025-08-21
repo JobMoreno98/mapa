@@ -1,145 +1,390 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Rutas entre edificios</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-color-markers/dist/leaflet-color-markers.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <style>
-        #map {
-            height: 600px;
-        }
+      #map {
+        height: 600px;
+      }
 
-        #controls {
-            margin: 10px 0;
-        }
+      #controls {
+        margin: 10px 0;
+      }
+      #instructions {
+        padding: 15px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        font-family: sans-serif;
+      }
+      .leaflet-bottom {
+        display: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <h2>Calcula rutas en el mapa</h2>
-    <div id="controls">
-        <label for="startSelect">Inicio:</label>
-        <select id="startSelect"></select>
-        <label for="endSelect">Destino:</label>
-        <select id="endSelect"></select>
-        <button id="routeBtn">Calcular ruta</button>
+  <body>
+    <div
+      class="container-fluid d-flex flex-column justify-content-center align-content-center flex-wrap"
+    >
+      <h2>Calcula rutas en el mapa</h2>
+      <div id="controls" class="col-sm-12 col-md-3 d-flex flex-column">
+        <label class="form-label" for="startSelect">Inicio:</label>
+        <select class="form-control" id="startSelect"></select>
+        <label class="form-label" for="endSelect">Destino:</label>
+        <select class="form-control" id="endSelect"></select>
+        <button class="btn btn-success btn-sm my-1" id="routeBtn">
+          Calcular ruta
+        </button>
+      </div>
+      <div class="w-100 d-flex flex-column flex-md-row">
+        <div class="order-1 order-md-2 col-12 col-md-3 m-1" id="instructions">
+          Instrucciones
+        </div>
+
+        <div class="order-2 order-md-1 col-12 col-md-8 m-1" id="map"></div>
+      </div>
     </div>
-    <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        const coordenadas_edificios = {
-            "Edificio A": { lat: 20.740475484548387, lng: -103.37718367128555 },
-            "Edificio C": { lat: 20.740946568688557, lng: -103.37713646203734 },
-            "Edificio D": { lat: 20.74126051171166, lng: -103.37717060097611 },
-            "Edificio F4": { lat: 20.741444975105047, lng: -103.37713266880324 },
-            "Edificio G": { lat: 20.74193273779499, lng: -103.37581831942917 },
-            "Edificio H": { lat: 20.741629438270856, lng: -103.37594349556005 },
-            "Edificio I": { lat: 20.7413296855122, lng: -103.3760686716909 },
-            "Cruce 1": { lat: 20.741880377502067, lng: -103.37644954708321 },
-            "Cruce 2": { lat: 20.741554290001737, lng: -103.37660243298579 },
-            "Cruce 3": { lat: 20.74097485586331, lng: -103.37668021704151 },
-            "Cruce 4": { lat: 20.740563481361807, lng: -103.37670167471205 },
+      const redIcon = new L.Icon({
+        iconUrl:
+          "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+        shadowUrl:
+          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+      });
+      const coordenadas_edificios = {
+        "Puerta 1": { lat: 20.73841589931226, lng: -103.37711849492325 },
+        "Puerta 2": { lat: 20.738716424150407, lng: -103.37837128855159 },
+        "Puerta 3": { lat: 20.7402342450306, lng: -103.37812775120777 },
+        "Puerta 4": { lat: 20.741091321105554, lng: -103.37798560077894 },
+        "Puerta 6": { lat: 20.74011943044118, lng: -103.37503951204755 },
+
+        "Edificio A": { lat: 20.740475484548387, lng: -103.37718367128555 },
+        "Edificio B": { lat: 20.740699093013447, lng: -103.37716896170467 },
+        "Edificio F1": { lat: 20.740560469081302, lng: -103.37711392497734 },
+        "Edificio C": { lat: 20.740946568688557, lng: -103.37713646203734 },
+        "Edificio D": { lat: 20.74126051171166, lng: -103.37717060097611 },
+        "Edificio F4": { lat: 20.741444975105047, lng: -103.37713266880324 },
+        "Edificio G": { lat: 20.74201090631346, lng: -103.37608957764458 },
+        "Edificio H": { lat: 20.741710334835947, lng: -103.37620460611592 },
+
+        "Edificio I": { lat: 20.741393943171143, lng: -103.376316251375 },
+        "Edificio I 2": { lat: 20.74137655766177, lng: -103.37597917294462 },
+        "Edificio J": { lat: 20.73949481303867, lng: -103.37616261732077 },
+
+        "Cruce 1": { lat: 20.741880377502067, lng: -103.37644954708321 },
+        "Cruce 2": { lat: 20.741554290001737, lng: -103.37660243298579 },
+        "Cruce 3": { lat: 20.741442645622698, lng: -103.3765246658059 },
+        "Cruce 4": { lat: 20.740430321500813, lng: -103.37675036469675 },
+
+        "Cruce 5": { lat: 20.739799719874483, lng: -103.37559460716544 },
+        "Cruce 6": { lat: 20.741626624676027, lng: -103.3754409819047 },
+        "Cruce 7": { lat: 20.741302040281347, lng: -103.3754618445957 },
+        "Cruce 8": { lat: 20.740175744794065, lng: -103.37557753769305 },
+        "Cruce 9": { lat: 20.739790804212667, lng: -103.3756422688102 },
+        "Cruce 10": { lat: 20.739833446961207, lng: -103.37604460013281 },
+        "Cruce 11": { lat: 20.739938799582532, lng: -103.37683853394279 },
+        "Cruce 12": { lat: 20.738544597616, lng: -103.37709321605007 },
+        "Cruce 13": { lat: 20.738873200015227, lng: -103.37835117198546 },
+      };
+
+      let map = L.map("map").setView([20.7406, -103.3771], 17);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "© OpenStreetMap",
+      }).addTo(map);
+
+      let nodes = [];
+      let edges = [];
+      let markers = {};
+      let routeLayer = null;
+
+      function distancia([lat1, lng1], [lat2, lng2]) {
+        const R = 6371e3;
+        const φ1 = (lat1 * Math.PI) / 180;
+        const φ2 = (lat2 * Math.PI) / 180;
+        const Δφ = ((lat2 - lat1) * Math.PI) / 180;
+        const Δλ = ((lng2 - lng1) * Math.PI) / 180;
+        const a =
+          Math.sin(Δφ / 2) ** 2 +
+          Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) ** 2;
+        return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      }
+
+      function dijkstra(startId, endId) {
+        let dist = {},
+          prev = {},
+          Q = new Set(nodes.map((n) => n.id));
+        nodes.forEach((n) => (dist[n.id] = Infinity));
+        dist[startId] = 0;
+
+        while (Q.size) {
+          let u = [...Q].reduce((a, b) => (dist[a] < dist[b] ? a : b));
+          Q.delete(u);
+          if (u === endId) break;
+          edges
+            .filter((e) => e.source === u && Q.has(e.target))
+            .forEach((e) => {
+              let alt = dist[u] + e.weight;
+              if (alt < dist[e.target]) {
+                dist[e.target] = alt;
+                prev[e.target] = u;
+              }
+            });
+          edges
+            .filter((e) => e.target === u && Q.has(e.source))
+            .forEach((e) => {
+              let alt = dist[u] + e.weight;
+              if (alt < dist[e.source]) {
+                dist[e.source] = alt;
+                prev[e.source] = u;
+              }
+            });
+        }
+        let path = [],
+          u = endId;
+        while (u) {
+          path.unshift(u);
+          u = prev[u];
+        }
+        return path[0] === startId ? path : null;
+      }
+
+      fetch("./nodos.json")
+        .then((r) => r.json())
+        .then((data) => {
+          nodes = data.nodes;
+          // Asignar coordenadas y crear marcadores para todos los nodos
+          nodes.forEach((n) => {
+            if (n.lat !== undefined && n.lng !== undefined) {
+            } else if (n.id.startsWith("Entrada") || n.id.startsWith("Cruce")) {
+              const base =
+                coordenadas_edificios[n.id] ||
+                coordenadas_edificios[n.edificio];
+              if (base) {
+                n.lat = base.lat;
+                n.lng = base.lng;
+              } else {
+                console.error("No hay coordenadas para", n.id, n.edificio);
+                return;
+              }
+            }
+            // Caso 3: Para todos los demás nodos (como salones), aplica la dispersión.
+            else {
+              const base = coordenadas_edificios[n.edificio];
+              if (base) {
+                n.lat = base.lat + (Math.random() - 0.5) * 0.00005;
+                n.lng = base.lng + (Math.random() - 0.5) * 0.00005;
+              } else {
+                console.error("No hay coordenadas base para", n.edificio);
+                return;
+              }
+            }
+
+            // 1. Añadir el nodo al objeto 'markers' AUNQUE NO TENGA MARCADOR VISIBLE
+            // Esto es crucial para que la ruta se dibuje correctamente
+            markers[n.id] = {
+              getLatLng: () => L.latLng(n.lat, n.lng),
+            };
+
+            // 2. CREAR el marcador VISIBLE SOLO si no es un cruce
+
+            if (n.id.startsWith("Puerta") || n.id.startsWith("Entrada")) {
+              let m = L.marker([n.lat, n.lng]).addTo(map).bindPopup(n.id);
+              markers[n.id] = m;
+            }
+          });
+
+          // 1. Filtrar los nodos una sola vez para eliminar los cruces
+          const nodosFiltrados = nodes.filter(
+            (node) => node.edificio !== "Cruce"
+          );
+
+          // 2. Usar la lista filtrada para llenar los selects
+          nodosFiltrados.forEach((n) => {
+            let opt = document.createElement("option");
+            opt.value = n.id;
+            opt.textContent = n.id;
+            startSelect.appendChild(opt.cloneNode(true));
+            endSelect.appendChild(opt);
+          });
+
+          // construir edges con pesos
+          edges = data.edges.map((e) => {
+            let a = nodes.find((n) => n.id === e.from);
+            let b = nodes.find((n) => n.id === e.to);
+            return {
+              source: a.id,
+              target: b.id,
+              weight: distancia([a.lat, a.lng], [b.lat, b.lng]),
+            };
+          });
+        });
+
+      routeBtn.addEventListener("click", () => {
+        // Elimina cualquier ruta y marcador anterior para limpiar el mapa
+        if (routeLayer) map.removeLayer(routeLayer);
+
+        // Si tienes un marcador de inicio y fin anterior, remuévelo
+        if (markers.start) map.removeLayer(markers.start);
+        if (markers.end) map.removeLayer(markers.end);
+
+        let startId = startSelect.value;
+        let endId = endSelect.value;
+
+        let path = dijkstra(startId, endId);
+        if (!path) {
+          alert("No hay ruta.");
+          return;
+        }
+
+        const startNode = nodes.find((n) => n.id === startId);
+        const endNode = nodes.find((n) => n.id === endId);
+
+        // 2. Crea y pinta los marcadores de inicio y fin con el icono rojo
+        markers.start = L.marker([startNode.lat, startNode.lng], {
+          icon: redIcon, // Aquí se usa el icono rojo
+        })
+          .addTo(map)
+          .bindPopup(startId);
+
+        markers.end = L.marker([endNode.lat, endNode.lng], {
+          icon: redIcon, // Aquí se usa el icono rojo
+        })
+          .addTo(map)
+          .bindPopup(endId);
+
+        // 3. Genera y dibuja la ruta
+        const instructionsDiv = document.getElementById("instructions");
+        instructionsDiv.innerHTML = generarInstrucciones(path, nodes);
+
+        // Dibuja la línea de la ruta
+        let latlngs = path.map((id) => {
+          const node = nodes.find((n) => n.id === id);
+          return [node.lat, node.lng];
+        });
+        routeLayer = L.polyline(latlngs, { color: "blue", weight: 4 }).addTo(
+          map
+        );
+
+        map.fitBounds(routeLayer.getBounds());
+      });
+
+      // Agrega esta función para generar las instrucciones de texto
+      function generarInstrucciones(path, nodes) {
+        const pisoANumero = (pisoStr) => {
+          if (pisoStr === "PB") return 0;
+          return parseInt(pisoStr.replace(/P/g, ""));
         };
 
-        let map = L.map('map').setView([20.7406, -103.3771], 17);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19, attribution: '© OpenStreetMap'
-        }).addTo(map);
+        let instruccionesHTML = "<h4>Instrucciones:</h4><ol>";
+        instruccionesHTML += `<li>Comienza en ${path[0]}.</li>`;
 
-        let nodes = [];
-        let edges = [];
-        let markers = {};
-        let routeLayer = null;
+        let i = 0;
+        while (i < path.length - 1) {
+          let currentNode = nodes.find((n) => n.id === path[i]);
+          let nextNode = nodes.find((n) => n.id === path[i + 1]);
 
-        function distancia([lat1, lng1], [lat2, lng2]) {
-            const R = 6371e3;
-            const φ1 = lat1 * Math.PI / 180;
-            const φ2 = lat2 * Math.PI / 180;
-            const Δφ = (lat2 - lat1) * Math.PI / 180;
-            const Δλ = (lng2 - lng1) * Math.PI / 180;
-            const a = Math.sin(Δφ / 2) ** 2 + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) ** 2;
-            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        }
+          // 1. Lógica para agrupar salones consecutivos
+          const isCurrentSalon =
+            !currentNode.id.includes("Escalera") &&
+            !currentNode.id.startsWith("Entrada") &&
+            !currentNode.id.startsWith("Cruce") &&
+            !currentNode.id.startsWith("Puerta");
+          const isNextSalon =
+            !nextNode.id.includes("Escalera") &&
+            !nextNode.id.startsWith("Entrada") &&
+            !nextNode.id.startsWith("Cruce") &&
+            !nextNode.id.startsWith("Puerta");
 
-        function dijkstra(startId, endId) {
-            let dist = {}, prev = {}, Q = new Set(nodes.map(n => n.id));
-            nodes.forEach(n => dist[n.id] = Infinity);
-            dist[startId] = 0;
-
-            while (Q.size) {
-                let u = [...Q].reduce((a, b) => dist[a] < dist[b] ? a : b);
-                Q.delete(u);
-                if (u === endId) break;
-                edges.filter(e => e.source === u && Q.has(e.target)).forEach(e => {
-                    let alt = dist[u] + e.weight;
-                    if (alt < dist[e.target]) { dist[e.target] = alt; prev[e.target] = u; }
-                });
-                edges.filter(e => e.target === u && Q.has(e.source)).forEach(e => {
-                    let alt = dist[u] + e.weight;
-                    if (alt < dist[e.source]) { dist[e.source] = alt; prev[e.source] = u; }
-                });
+          if (
+            isCurrentSalon &&
+            isNextSalon &&
+            currentNode.edificio === nextNode.edificio &&
+            currentNode.piso === nextNode.piso
+          ) {
+            let j = i + 1;
+            while (
+              j < path.length &&
+              !nodes.find((n) => n.id === path[j]).id.includes("Escalera") &&
+              !nodes.find((n) => n.id === path[j]).id.startsWith("Entrada") &&
+              !nodes.find((n) => n.id === path[j]).id.startsWith("Cruce") &&
+              !nodes.find((n) => n.id === path[j]).id.startsWith("Puerta") &&
+              nodes.find((n) => n.id === path[j]).piso === currentNode.piso &&
+              nodes.find((n) => n.id === path[j]).edificio ===
+                currentNode.edificio
+            ) {
+              j++;
             }
-            let path = [], u = endId;
-            while (u) { path.unshift(u); u = prev[u]; }
-            return path[0] === startId ? path : null;
+            instruccionesHTML += `<li>Recorre el pasillo desde ${
+              path[i]
+            } hasta ${path[j - 1]}.</li>`;
+            i = j - 1; // Avanza el índice para saltar los salones agrupados
+            continue;
+          }
+
+          // 2. Lógica para movimientos entre pisos (escaleras)
+          if (pisoANumero(currentNode.piso) !== pisoANumero(nextNode.piso)) {
+            if (pisoANumero(nextNode.piso) > pisoANumero(currentNode.piso)) {
+              instruccionesHTML += `<li>Sube a la Planta ${nextNode.piso} por las escaleras. ⬆️</li>`;
+            } else {
+              instruccionesHTML += `<li>Baja a la Planta ${nextNode.piso} por las escaleras. ⬇️</li>`;
+            }
+            i++;
+            continue;
+          }
+
+          // 3. Lógica para otros movimientos (entradas, cruces, etc.)
+          if (nextNode.id.startsWith("Puerta")) {
+            instruccionesHTML += `<li>Continúa hacia la ${nextNode.id}.</li>`;
+          } else if (nextNode.id.startsWith("Entrada")) {
+            instruccionesHTML += `<li>Continúa hacia la ${nextNode.id}.</li>`;
+          } else if (nextNode.id.includes("Escalera")) {
+            instruccionesHTML += `<li>Camina hacia las escaleras del ${nextNode.edificio}.</li>`;
+          } else if (nextNode.id.startsWith("Cruce")) {
+            instruccionesHTML += `<li>Dirígete al ${nextNode.id}.</li>`;
+          } else {
+            instruccionesHTML += `<li>Continúa hacia ${nextNode.id}.</li>`;
+          }
+
+          i++;
         }
 
-        fetch("./nodos.json")
-            .then(r => r.json())
-            .then(data => {
-                nodes = data.nodes;
-                // asignar coordenadas
-                nodes.forEach(n => {
-                    // primero buscar coordenadas específicas por nodo, luego por edificio
-                    const base = coordenadas_edificios[n.id] || coordenadas_edificios[n.edificio];
-                    if (!base) {
-                        console.error("No hay coordenadas para", n.id, n.edificio);
-                        return;
-                    }
-
-                    // entradas y cruces usan coordenadas exactas, salones se dispersan un poco
-                    if (n.id.startsWith("Entrada") || n.id.startsWith("Cruce")) {
-                        n.lat = base.lat;
-                        n.lng = base.lng;
-                    } else {
-                        n.lat = base.lat + (Math.random() - 0.5) * 0.00005;
-                        n.lng = base.lng + (Math.random() - 0.5) * 0.00005;
-                    }
-
-                    // crear marcador
-                    let m = L.marker([n.lat, n.lng]).addTo(map).bindPopup(n.id);
-                    markers[n.id] = m;
-
-                    // agregar opciones a los selects
-                    let opt = document.createElement("option");
-                    opt.value = n.id;
-                    opt.textContent = n.id;
-                    startSelect.appendChild(opt.cloneNode(true));
-                    endSelect.appendChild(opt);
-                });
-
-
-                // construir edges con pesos
-                edges = data.edges.map(e => {
-                    let a = nodes.find(n => n.id === e.from);
-                    let b = nodes.find(n => n.id === e.to);
-                    return { source: a.id, target: b.id, weight: distancia([a.lat, a.lng], [b.lat, b.lng]) };
-                });
-            });
-
-        routeBtn.addEventListener("click", () => {
-            let start = startSelect.value, end = endSelect.value;
-            let path = dijkstra(start, end);
-            if (!path) { alert("No hay ruta."); return; }
-            if (routeLayer) map.removeLayer(routeLayer);
-            let latlngs = path.map(id => markers[id].getLatLng());
-            routeLayer = L.polyline(latlngs, { color: "blue", weight: 4 }).addTo(map);
-            map.fitBounds(routeLayer.getBounds());
-        });
+        instruccionesHTML += "</ol>";
+        return instruccionesHTML;
+      }
     </script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
