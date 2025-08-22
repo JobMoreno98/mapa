@@ -62,8 +62,9 @@ class MigrateNodes extends Command
         foreach ($data['nodes'] as $node) {
             if (isset($node['lat'])) {
                 Nodo::updateOrCreate(
-                    ['id' => $node['id']],
+                    ['nombre' => $node['id']],
                     [
+                        'nombre' => $node['id'],
                         'edificio' => $node['edificio'],
                         'piso' => $node['piso'],
                         'lat' => $node['lat'],
@@ -73,8 +74,9 @@ class MigrateNodes extends Command
             } else {
                 if (isset($coordenadas_edificios[$node['edificio']])) {
                     Nodo::updateOrCreate(
-                        ['id' => $node['id']],
+                        ['nombre' => $node['id']],
                         [
+                            'nombre' => $node['id'],
                             'edificio' => $node['edificio'],
                             'piso' => $node['piso'],
                             'lat' => $coordenadas_edificios[$node['edificio']]['lat'] + (mt_rand() / mt_getrandmax() - 0.5) * 0.00005,
@@ -86,8 +88,8 @@ class MigrateNodes extends Command
             }
         }
         foreach ($data['edges'] as $edge) {
-            $fromNode = Nodo::where('id', $edge['from'])->first();
-            $toNode = Nodo::where('id', $edge['to'])->first();
+            $fromNode = Nodo::where('nombre', $edge['from'])->first();
+            $toNode = Nodo::where('nombre', $edge['to'])->first();
             if ($fromNode && $toNode) {
                 $weight = $this->calcularDistancia($fromNode->lat, $fromNode->lng, $toNode->lat, $toNode->lng);
                 Edge::updateOrCreate(

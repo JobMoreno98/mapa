@@ -16,10 +16,9 @@ return new class extends Migration
             $table->string('from_node');  // Nodo de origen
             $table->string('to_node');    // Nodo de destino
             $table->decimal('weight', 5, 2);  // Peso de la conexión
-
-            // Claves foráneas que referencian a la tabla "nodos"
-            $table->foreign('from_node')->references('id')->on('nodos')->onDelete('cascade');
-            $table->foreign('to_node')->references('id')->on('nodos')->onDelete('cascade');
+            
+            $table->foreign('from_node')->references('nombre')->on('nodos')->onDelete('cascade');
+            $table->foreign('to_node')->references('nombre')->on('nodos')->onDelete('cascade');
         });
     }
 

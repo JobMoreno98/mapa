@@ -11,8 +11,8 @@ class Nodo extends Model
     // Especifica que no se usará la propiedad "timestamps"
     public $timestamps = false;
 
-    protected $fillable = ['id', 'edificio', 'piso', 'lat', 'lng'];
-    
+    protected $fillable = ['id', 'nombre', 'edificio', 'piso', 'lat', 'lng'];
+
     public function edgesFrom()
     {
         return $this->hasMany(Edge::class, 'from_node', 'id');

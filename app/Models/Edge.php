@@ -10,7 +10,7 @@ class Edge extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['from_node', 'to_node', 'weight'];
+    protected $fillable = ['nombre','from_node', 'to_node', 'weight'];
     
     public function fromNode()
     {

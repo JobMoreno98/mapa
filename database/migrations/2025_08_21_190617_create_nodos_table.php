@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nodos', function (Blueprint $table) {
-            $table->string('id')->primary();  // El ID es único y será la clave primaria
+           $table->id();
+            $table->string('nombre')->unique()->index();  // El ID es único y será la clave primaria
             $table->string('edificio');
             $table->string('piso');
             $table->decimal('lat', 10, 6);  // Latitud con 6 decimales
