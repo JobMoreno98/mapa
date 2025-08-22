@@ -36,7 +36,7 @@
             <label class="form-label" for="endSelect">Destino:</label>
             <select class="form-control" id="endSelect"></select>
             <button class="btn btn-success btn-sm my-1" id="routeBtn">
-                Calcular ruta
+                Buscar  ruta
             </button>
         </div>
         <div class="w-100 d-flex flex-column flex-md-row">
@@ -79,21 +79,24 @@
                 nodes.forEach(n => {
                     // Mostrar solo los nodos relevantes por defecto
                     if (!markers[n.nombre]) {
-                        if (n.nombre.startsWith("Puerta") || n.nombre.startsWith("Entrada")) {
+                        if (n.nombre.startsWith("Puerta") || n.nombre.startsWith("Entrada") || n.nombre
+                            .startsWith("Edificio")) {
                             markers[n.nombre] = L.marker([n.lat, n.lng]).addTo(map).bindPopup(n.nombre);
                         } else {
                             markers[n.inombred] = {
                                 getLatLng: () => L.latLng(n.lat, n.lng),
                             };
                         }
-                    }
+                        // Llenar los selects
+                        if (!n.nombre.startsWith("Cruce") && !n.nombre.endsWith('Escalera')) {
+                            let opt = document.createElement("option");
+                            opt.value = n.nombre;
+                            opt.textContent = n.nombre;
+                            startSelect.appendChild(opt.cloneNode(true));
+                            endSelect.appendChild(opt);
+                        }
 
-                    // Llenar los selects
-                    let opt = document.createElement("option");
-                    opt.value = n.nombre;
-                    opt.textContent = n.nombre;
-                    startSelect.appendChild(opt.cloneNode(true));
-                    endSelect.appendChild(opt);
+                    }
                 });
             });
 
@@ -228,10 +231,7 @@
             return "recto";
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $('#startSelect').select2();

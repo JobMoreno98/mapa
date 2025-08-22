@@ -85,4 +85,10 @@
                 });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            $('#fromNode').select2();
+            $('#toNode').select2();
+        });
+    </script>
 @endsection

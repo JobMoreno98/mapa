@@ -16,8 +16,10 @@ Route::view('dashboard', 'dashboard')
 
 Route::resource('nodos', NodoController::class)->names('nodos');
 Route::get("/crear-nodo", [NodoController::class, 'crear_nodo'])->name('crear.nodo');
+Route::get("/editar-nodo", [NodoController::class, 'editar_nodo'])->name('editar.nodo');
 Route::post('/agregar-nodo', [NodoController::class, 'agregar_nodo'])->name("agregar.nodo");
 
+Route::post('/guardar-nodo-actualizado', [NodoController::class, 'editarNodo'])->name('guarda.nodo');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

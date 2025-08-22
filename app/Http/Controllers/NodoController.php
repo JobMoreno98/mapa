@@ -86,4 +86,38 @@ class NodoController extends Controller
 
         return response()->json(['message' => 'Nodo agregado exitosamente.']);
     }
+    public function editar_nodo()
+    {
+        return  view("nodos.editar_nodo");
+    }
+    public function editarNodo(Request $request)
+    {
+        $data = $request->validate([
+            'nombre' => 'required|string|exists:nodos,nombre',
+            'lat'    => 'required|numeric',
+            'lng'    => 'required|numeric',
+        ]);
+
+        // Actualizar el nodo
+        $nodo = Nodo::where('nombre', $data['nombre'])->first();
+        $nodo->lat = $data['lat'];
+        $nodo->lng = $data['lng'];
+        $nodo->save();  // Guarda y actualiza 'updated_at' automáticamente :contentReference[oaicite:0]{index=0}
+
+        // Recalcular los pesos de sus edges
+        $edges = Edge::where('from_node', $data['nombre'])
+            ->orWhere('to_node', $data['nombre'])
+            ->get();
+
+        foreach ($edges as $edge) {
+            $from = Nodo::where('nombre', $edge->from_node)->first();
+            $to = Nodo::where('nombre', $edge->to_node)->first();
+            if ($from && $to) {
+                $edge->weight = $this->calcularDistancia($from->lat, $from->lng, $to->lat, $to->lng);
+                $edge->save();
+            }
+        }
+
+        return response()->json(['message' => 'Nodo y aristas actualizadas correctamente.']);
+    }
 }
